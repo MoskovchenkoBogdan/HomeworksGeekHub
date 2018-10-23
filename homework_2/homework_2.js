@@ -47,7 +47,8 @@ var sum = '';
 for (var prop in newArray){
     sum = sum + newArray[prop]+' '
 }
-sum.trim();
+sum = sum.trim();
+
 console.log('Методом join создаем из "массива" строку', sum);
 
 // метод filter используется для фильтрации массива через функцию;
