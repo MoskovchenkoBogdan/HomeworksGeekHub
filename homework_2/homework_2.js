@@ -43,12 +43,13 @@ Object.defineProperty(newArray, 'arrPush', {
             for (var key in newArray) {
                 lengthNewArray++;
             }
-            return lengthNewArray;
+            newArray[lengthNewArray] = newArray[lengthNewArray-1] + newArray[lengthNewArray-2];
+            return newArray;
     }
 
 })
 
-newArray[newArray.arrPush] = 21 ;
+newArray.arrPush;
 
 console.log('Методом push добавляем последний элемент "массива"',newArray);
 
