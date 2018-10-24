@@ -7,80 +7,120 @@ var newArray = {
     '4': 5,
     '5': 8,
     '6': 13,
-    '7': 21
+    '7': 21,
+
 };
 console.log('Наш "массив" - числа Фиббоначи ',newArray);
 
 // метод pop удаляет последний элемент массива и возвращает его;
 
-var lengthNewArray = 0;
-function someFn() {
-    for (key in newArray){
-        lengthNewArray++;
+Object.defineProperty(newArray, 'arrPop', {
+    enumerable: false,
+    get: function (){
+        let lengthNewArray = 0;
+        function someFn() {
+            for (var key in newArray){
+                lengthNewArray++;
+            }
+            return lengthNewArray;
+        }
+
+        someFn();
+        return delete newArray[lengthNewArray-1];
     }
-    return lengthNewArray;
-}
+})
+newArray.arrPop;
 
-someFn();
-
-delete newArray[lengthNewArray - 1];
 console.log('Методом pop удаляем последний элемент "массива"', newArray);
 
 // метод push добавляет элемент в конец массива;
 
-lengthNewArray = 0;
-function f1() {
-    for (key in newArray){
-        lengthNewArray++;
-    }
-    return lengthNewArray
-}
-f1();
 
-newArray[lengthNewArray] = 21;
+Object.defineProperty(newArray, 'arrPush', {
+    enumerable: false,
+    get: function () {
+            var lengthNewArray = 0;
+            for (var key in newArray) {
+                lengthNewArray++;
+            }
+            return lengthNewArray;
+    }
+
+})
+
+newArray[newArray.arrPush] = 21 ;
 
 console.log('Методом push добавляем последний элемент "массива"',newArray);
 
 // метод join создает из массива строку;
 
-var sum = '';
-for (var prop in newArray){
-    sum = sum + newArray[prop]+' '
-}
-sum = sum.trim();
+Object.defineProperty(newArray, 'join',{
+    enumerable: false,
+    get: function () {
+        var sum = '';
+        for (var prop in newArray) {
+            sum = sum + newArray[prop] + ' '
+        }
+        sum = sum.trim();
+        return sum
+    }
+})
 
-console.log('Методом join создаем из "массива" строку', sum);
+console.log('Методом join создаем из "массива" строку', newArray.join);
 
 // метод filter используется для фильтрации массива через функцию;
 
-var filter = {};
-var i = 0;
-for(key in newArray){
-    if(newArray[key] > 5){filter[i]= newArray[key]; i++}
-}
+Object.defineProperty(newArray, 'filter',{
+    enumerable: false,
+    get: function () {
+        var filter = {};
+        var i = 0;
+        for (key in newArray) {
+            if (newArray[key] > 5) {
+                filter[i] = newArray[key];
+                i++
+            }
+        }
+        return filter
+    }
+})
 
-console.log('Методом filter создаем "массив" из старого все элементы которого больше 5 ', filter);
+
+console.log('Методом filter создаем "массив" из старого все элементы которого больше 5 ', newArray.filter);
 
 // метод find возвращает первое значение массива удовлетворяющего условие или undefined если его не находит;
 
-var find;
-
-    function calc(){
-        for (key in newArray){
-        if (newArray[key] > 3){return find = newArray[key]}
+Object.defineProperty(newArray, 'find', {
+    enumerable: false,
+    get: function () {
+        var find1;
+        function calc() {
+            for (key in newArray) {
+            if (newArray[key] > 3) {
+                return find1 = newArray[key]
+            };
+            }
+        }
+        calc();
+        return find1;
     }
-}
-    calc();
-console.log('Методом find находим элемент "массива" который больше 3 ', find);
+})
+console.log('Методом find находим элемент "массива" который больше 3 ', newArray.find);
 
 // метод map создает новый массив в результате трансформацыи старого по заданным условиям;
 //создадим объект значения свойств которого будут значения объекта а / 5;
 
-var newCurrentArray = {};
-for (var key in newArray){
-    newCurrentArray[key] = newArray[key] / 5
-}
-console.log('Методом map создаем "массив" все элементы которого получены из старого / 5', newCurrentArray);
+Object.defineProperty(newArray, 'map', {
+    enumerable: false,
+    get: function () {
+        var newCurrentArray = {};
+        for (var key in newArray) {
+            newCurrentArray[key] = newArray[key] / 5
+        }
+        return newCurrentArray;
+    }
+})
+console.log('Методом map создаем "массив" все элементы которого получены из старого / 5', newArray.map);
 
 // Метод sort - сортирует массив по заданным параметрам или если параметры не заданы то как строки
 
@@ -94,40 +134,47 @@ var array = {
     '6': 13,
     '7': 1
 };
-var lengthArray = 0;
-function f() {
-    for (key in newArray){
-        lengthArray++;
-    }
-    return lengthArray
-}
-f();
 
-function sortArray(array){
-    for (i = 0; i< lengthArray; i++){
-        for (var j = 0; j < lengthArray-i-1; j++){
-            if(array[j] < array[j+1]){
-                var x = array[j];
-                array[j] = array[j+1];
-                array[j+1] = x;
+Object.defineProperty(array, 'sort', {
+    enumerable: false,
+    get: function () {
+        var lengthArray = 0;
+        function f() {
+            for (key in newArray) {
+                lengthArray++;
             }
+            return lengthArray
         }
+        f();
+        function sortArray(array) {
+            for (i = 0; i < lengthArray; i++) {
+                for (var j = 0; j < lengthArray - i - 1; j++) {
+                    if (array[j] < array[j + 1]) {
+                        var x = array[j];
+                        array[j] = array[j + 1];
+                        array[j + 1] = x;
+                    }
+                }
+            }
+            return array;
+        };
+        return sortArray(array);
     }
-    return array;
-};
-
-sortArray(array);
-
-console.log("Отсортируем 'массив' в порядке уменьшения", array);
+})
+console.log("Отсортируем 'массив' в порядке уменьшения", array.sort);
 
 //Метод toString() для массивов выведет строку каждый элемент которого будет разделятся - ,
-
-sum = '';
-for (var prop in newArray){
-    sum = sum +newArray[prop]+ ',';
-}
-
-console.log('Метод toString() создает из "массива" строку, каждый элемент которого будет разделятся -,', sum.slice(0, -1));
+Object.defineProperty(newArray, 'toString', {
+    enumerable: false,
+    get: function () {
+        sum = '';
+        for (var prop in newArray) {
+            sum = sum + newArray[prop] + ',';
+        }
+        return sum.slice(0, -1)
+    }
+})
+console.log('Метод toString() создает из "массива" строку, каждый элемент которого будет разделятся -,', newArray.toString);
 
 // getter length -- обозначим через Object.defineProperty()
 
