@@ -141,7 +141,7 @@ Object.defineProperty(array, 'sort', {
     get: function () {
         var lengthArray = 0;
         function f() {
-            for (key in newArray) {
+            for (key in array) {
                 lengthArray++;
             }
             return lengthArray
