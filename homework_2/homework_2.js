@@ -180,7 +180,7 @@ console.log('Метод toString() создает из "массива" стро
 // getter length -- обозначим через Object.defineProperty()
 
 Object.defineProperty(newArray, 'length', {
-    get: function () {
+    get: function() {
         let count = 0;
         for (key in this){
              count++;
@@ -200,5 +200,4 @@ function AlmostArray (){
 var arr = new AlmostArray(23, 46, 75, 47, 'просто так');
 
 console.log('Создаем "массив" с помощью конструктора', arr);
-
 

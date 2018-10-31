@@ -51,8 +51,7 @@ function doubleCola(n) {
     var cola = [s,l,p,r,h];
     var i = 0;
     while (i!=n){cola.push(cola[i],cola[i]); i++};
-    var k = n-1;
-    return cola[k];
+    return cola[n-1];
 }
 
 

@@ -68,13 +68,14 @@ var registrationTests = [
 
 
 function registration(names) {
+
     var baseStorage = [], num, res = [];
     baseStorage = baseStorage.concat(names);
-    for (i=0;i<baseStorage.length;i++){
+    for (var i=0;i<baseStorage.length;i++){
         num=1;
         for (var j=1;j<baseStorage.length;j++){
             if (baseStorage[i] === baseStorage[j] && i!=j){
-                baseStorage[j] =baseStorage[j] +num;
+                baseStorage[j] = baseStorage[j] +num;
                 num++;
             }
         }
