@@ -55,7 +55,7 @@ function drazil(boys, girls) {
         if (arr[i] == 6){arr1.push(3,2,5,2,2,3,2)};
         if (arr[i] == 7){arr1.push(7,3,2,5,2,2,3,2)};
         if (arr[i] == 8){arr1.push(2,2,2,7,3,2,5,2,2,3,2)};
-        if (arr[i] == 9){arr1.push(3,3,2,2,2,3,2,5,2,2,3,2)};
+        if (arr[i] == 9){arr1.push(3,3,2,2,2,7,3,2,5,2,2,3,2)};
     };
 
     function compareNumeric(a, b) {
