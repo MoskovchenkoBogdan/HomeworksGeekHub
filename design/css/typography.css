@@ -1,0 +1,62 @@
+.logo {
+    font-size: 100px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.logo-subtitle {
+    font-size: 28px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.title-awarded {
+    font-size: 35px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 90px;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: right;
+}
+
+h3 {
+    font-size: 49px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: right;
+}
+
+.p1 {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.paragraph {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.paragraph-yellow{
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.paragraph-yellow-second {
+    font-size: 34px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.paragraph-headline-white {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.paragraph-headline-black {
+    font-size: 18px;
+    font-weight: 700;
+}
