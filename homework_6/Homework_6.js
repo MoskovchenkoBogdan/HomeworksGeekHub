@@ -129,7 +129,7 @@ addButton.addEventListener('click', () => {
 
     };
 
-    let setimg = function (cat) {
+    let setImg = function (cat) {
         if (cat['health'] >= 81) {
             catMaker.removeChild(catImage);
             catImage.setAttribute('src', 'img/catCool1.jpg');
