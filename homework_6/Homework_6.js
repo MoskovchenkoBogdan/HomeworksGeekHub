@@ -129,7 +129,7 @@ addButton.addEventListener('click', () => {
 
     };
 
-    let setimg = function (cat) {
+    let setImg = function (cat) {
         if (cat['health'] >= 81) {
             catMaker.removeChild(catImage);
             catImage.setAttribute('src', 'img/catCool1.jpg');
@@ -197,7 +197,7 @@ addButton.addEventListener('click', () => {
         minHunger(cat);
         minEnergy(cat);
         minHealth(cat);
-        setimg(cat);
+        setImg(cat);
         delList();
         list();
     });
@@ -206,7 +206,7 @@ addButton.addEventListener('click', () => {
         cat.eat();
         max(cat);
         minHealth(cat);
-        setimg(cat);
+        setImg(cat);
         delList();
         list();
     });
@@ -216,7 +216,7 @@ addButton.addEventListener('click', () => {
         max(cat);
         minHunger(cat);
         minHealth(cat);
-        setimg(cat);
+        setImg(cat);
         delList();
         list();
     });
@@ -227,7 +227,7 @@ addButton.addEventListener('click', () => {
         minHunger(cat);
         minEnergy(cat);
         minHealth(cat);
-        setimg(cat);
+        setImg(cat);
         delList();
         list();
     });
@@ -236,7 +236,7 @@ addButton.addEventListener('click', () => {
         cat.treat();
         max(cat);
         minHappiness(cat);
-        setimg(cat);
+        setImg(cat);
         delList();
         list();
     });
@@ -247,7 +247,7 @@ addButton.addEventListener('click', () => {
         minHunger(cat);
         minEnergy(cat);
         minHappiness(cat);
-        setimg(cat);
+        setImg(cat);
         delList();
         list();
         if (cat['health'] <= 0) {
