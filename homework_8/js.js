@@ -147,7 +147,7 @@ window.addEventListener('click', (event) => {
 
 });
 // Drag & drop //показывает ошибку в консоли что не может правильно прочитать addEventListener dragstart так
-// как item undefined но работает ... иногда подглючивая /// где-то ошибка но никак не могу найти
+// как item undefined но работает ...  /// где-то ошибка но никак не могу найти
 loadContent(list, arr);
 
 function loadContent(list, arr) {
