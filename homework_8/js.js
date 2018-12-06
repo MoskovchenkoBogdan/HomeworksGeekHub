@@ -105,7 +105,6 @@ window.addEventListener('click', (event) => {
     let key = findEmpty(arr);
     let prop = event.target.textContent;
     let index = findIndex(prop, arr);
-    console.log(event.target.textContent);
 
     if ((index - key) === 4) {
         let swap = arr[index];
@@ -147,8 +146,8 @@ window.addEventListener('click', (event) => {
     }
 
 });
-// Drag & drop //показывает ошибку в консоли что не может правильно прочитать addEventListener dragstart так как item undefined
-// но работает ... иногда подглючивая /// где-то ошибка но никак не могу найти
+// Drag & drop //показывает ошибку в консоли что не может правильно прочитать addEventListener dragstart так
+// как item undefined но работает ... иногда подглючивая /// где-то ошибка но никак не могу найти
 loadContent();
 
 function loadContent() {
@@ -162,11 +161,13 @@ function loadContent() {
     list[buttonEmptyIndex].setAttribute('data-index', list[buttonEmptyIndex].innerHTML);
     list[buttonEmptyIndex].setAttribute('draggable', true);
 
-    if (list[buttonEmptyIndex + 1] && buttonEmptyIndex !== 3 && buttonEmptyIndex !== 7 && buttonEmptyIndex !== 11 && buttonEmptyIndex !== 15) {
+    if (list[buttonEmptyIndex + 1] && buttonEmptyIndex !== 3 && buttonEmptyIndex !== 7 && buttonEmptyIndex !== 11 &&
+        buttonEmptyIndex !== 15) {
         list[buttonEmptyIndex + 1].setAttribute('data-index', list[buttonEmptyIndex + 1].innerHTML);
         list[buttonEmptyIndex + 1].setAttribute('draggable', true);
     }
-    if (list[buttonEmptyIndex - 1] && buttonEmptyIndex !== 0 && buttonEmptyIndex !== 4 && buttonEmptyIndex !== 8 && buttonEmptyIndex !== 12) {
+    if (list[buttonEmptyIndex - 1] && buttonEmptyIndex !== 0 && buttonEmptyIndex !== 4 && buttonEmptyIndex !== 8 &&
+        buttonEmptyIndex !== 12) {
         list[buttonEmptyIndex - 1].setAttribute('data-index', list[buttonEmptyIndex - 1].innerHTML);
         list[buttonEmptyIndex - 1].setAttribute('draggable', true);
     }
