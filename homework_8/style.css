@@ -1,0 +1,75 @@
+
+.draggable {
+    opacity: 0.5;
+}
+.under-drag {
+    opacity: 0.5;
+    border-style: dashed;
+}
+.display {
+    text-align: center;
+    font-size: 50px;
+    margin: 5px;
+    padding: 5px;
+    border: 2px solid lightseagreen;
+    overflow: hidden;
+    background: #f7f7f7;
+    transition: border-style 0.5s ease, opacity 0.5s ease;
+    width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+    padding: 0px;
+}
+body {
+    background: darkmagenta;
+    font-family: Arial;
+    display: flex;
+}
+
+.slider {
+    width: 500px;
+    height: 500px;
+    margin: 0px auto;
+    position: relative;
+    top: 0;
+    left: 300px;
+    right: 0;
+
+}
+
+.img {
+     text-align: center;
+     line-height: 480px;
+     font-size: 50px;
+     color: yellow;
+     display: none;
+ }
+.img.curry{
+    display: block;
+}
+.img:first-child{
+    width: 500px;
+    background: url("img/15-puzzle.svg.png") no-repeat;
+}
+.img:nth-child(2){
+    width: 500px;
+    background: url("img/15-puzzle_vertical.svg.png") no-repeat;
+}
+.img:nth-child(3){
+    width: 500px;
+    background: url("img/15-puzzle-loyd.svg.png") no-repeat;
+}
+.img:nth-child(4){
+    width: 500px;
+    background: url("img/15-puzzle-loyd-bis2.svg.png") no-repeat;
+}
+.img:nth-child(5){
+    width: 500px;
+    background: url("img/15-puzzle-Slon-Spit-Stoya.svg.png") no-repeat;
+}
+
