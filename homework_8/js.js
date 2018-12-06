@@ -6,7 +6,7 @@ function test(arr) {
     let arrTrue = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, ''];
     let count = 0;
     for (let i = 0; i < arrTrue.length; i++) {
-        if (arr[i] === arrTrue[i]) {
+        if (arr[i] == arrTrue[i]) {
             count++;
         }
     }
@@ -51,7 +51,7 @@ window.addEventListener('keydown', (event) => {
             remove(list);
             createList(list, arr);
             test(arr);
-            loadContent();
+            loadContent(list, arr);
         }
     }
     if (event.keyCode === 37) {
@@ -63,7 +63,7 @@ window.addEventListener('keydown', (event) => {
             remove(list);
             createList(list, arr);
             test(arr);
-            loadContent();
+            loadContent(list, arr);
         }
     }
     if (event.keyCode === 39) {
@@ -75,7 +75,7 @@ window.addEventListener('keydown', (event) => {
             remove(list);
             createList(list, arr);
             test(arr);
-            loadContent();
+            loadContent(list, arr);
         }
     }
     if (event.keyCode === 40) {
@@ -87,7 +87,7 @@ window.addEventListener('keydown', (event) => {
             remove(list);
             createList(list, arr);
             test(arr);
-            loadContent();
+            loadContent(list, arr);
         }
     }
 });
@@ -113,7 +113,7 @@ window.addEventListener('click', (event) => {
         remove(list);
         createList(list, arr);
         test(arr);
-        loadContent();
+        loadContent(list, arr);
     }
 
     if ((index - key) === -4) {
@@ -123,7 +123,7 @@ window.addEventListener('click', (event) => {
         remove(list);
         createList(list, arr);
         test(arr);
-        loadContent();
+        loadContent(list, arr);
     }
 
     if ((index - key) === 1 && key !== 3 && key !== 7 && key !== 11 && key !== 15) {
@@ -142,15 +142,15 @@ window.addEventListener('click', (event) => {
         remove(list);
         createList(list, arr);
         test(arr);
-        loadContent();
+        loadContent(list, arr);
     }
 
 });
 // Drag & drop //показывает ошибку в консоли что не может правильно прочитать addEventListener dragstart так
 // как item undefined но работает ... иногда подглючивая /// где-то ошибка но никак не могу найти
-loadContent();
+loadContent(list, arr);
 
-function loadContent() {
+function loadContent(list, arr) {
 
     for (let i = 0; i < list.length; i++) {
         list[i].setAttribute('draggable', false);
@@ -243,7 +243,7 @@ function loadContent() {
             remove(list);
             createList(list, arr);
             test(arr);
-            loadContent();
+            loadContent(list, arr);
         }
     }
 }
