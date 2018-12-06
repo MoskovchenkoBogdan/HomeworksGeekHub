@@ -133,7 +133,7 @@ window.addEventListener('click', (event) => {
         remove(list);
         createList(list, arr);
         test(arr);
-        loadContent();
+        loadContent(list, arr);
     }
     if ((index - key) === -1 && key !== 0 && key !== 4 && key !== 8 && key !== 12) {
         let swap = arr[key - 1];
