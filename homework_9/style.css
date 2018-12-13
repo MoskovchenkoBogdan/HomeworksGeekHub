@@ -1,0 +1,10 @@
+.wrapper  {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-around;
+}
+
+body {
+    font-size: 20px;
+}
