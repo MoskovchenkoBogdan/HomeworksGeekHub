@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+    <style>
+        body {
+            padding: 0;
+            font-family: Arial,sans-serif;
+            margin-top: 60px;
+        }
+        .form {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 10px;
+            background:yellow;
+            text-align: center;
+        }
+        input {
+            padding: 7px 12px;
+        }
+
+    </style>
+</head>
+<body>
+    <form class="form" id="form-address-weather">
+        <input type="text" class="input-text" id="text_city_address" placeholder="Enter your city name">
+        <input type="submit" class="input-btn" id="btn_address" value="За 5$">
+    </form>
+    <div id="weather"></div>
+    <script>
+        document.getElementById("form-address-weather").addEventListener("submit", getAddress);
+        function getAddress(e) {
+            e.preventDefault();
+            var addressString = document.getElementById('text_city_address');
+
+            if (addressString.value.length) {
+
+                var xhrString = "http://api.openweathermap.org/data/2.5/weather?q="+addressString.value+"&units=metric&APPID=ec4a8593ab30b5782c71bbf5098df439";
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', xhrString, true);
+
+                xhr.onreadystatechange = function() {
+                	if (xhr.readyState === 4) {
+                        var receivedData = JSON.parse(xhr.responseText);
+                        weatherOnScreen (receivedData);
+                        console.log(receivedData);
+                        addressString.value = '';
+                	}
+                };
+
+                xhr.send();
+            }
+
+        }
+        function weatherOnScreen (prop){
+            let divWeather = document.getElementById("weather");
+            let list = document.createElement('ul');
+            let li1 =document.createElement('li');
+            li1.textContent = 'temperature = ' + prop.main.temp;
+            list.appendChild(li1);
+            let li2 =document.createElement('li');
+            li2.textContent = 'weather = ' + prop.weather[0].main;
+            list.appendChild(li2);
+            let li3 =document.createElement('li');
+            li3.textContent = 'pressure = ' + prop.main.pressure;
+            list.appendChild(li3);
+            divWeather.appendChild(list);
+
+        }
+    </script>
+
+</body>
+</html>

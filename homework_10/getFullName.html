@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get Full Name</title>
+    <style>
+        body {
+            padding: 0;
+            font-family: Arial,sans-serif;
+            margin-top: 60px;
+        }
+        form {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 10px;
+            background: yellow;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<form id="submit-part-word">
+    <input type="text" id="input-text" placeholder="enter a part of the word">
+    <input type="submit" class="input-btn" id="btn_address" value="Готово">
+</form>
+<div id="tagList">
+</div>
+<script>
+    const fullName = document.getElementById('tagList');
+    const ul = document.createElement('ul');
+    fullName.appendChild(ul);
+    document.getElementById("submit-part-word").addEventListener("submit", getFullWord);
+
+    function getFullWord(e) {
+        e.preventDefault();
+        let partWord = document.getElementById('input-text');
+        const xhr = new XMLHttpRequest();
+        if (partWord.value !== '') {
+            xhr.open('GET', 'https://contextualwebsearch-websearch-v1.p.mashape.com/api/spelling/AutoComplete?text='
+                + partWord.value);
+            xhr.setRequestHeader("X-Mashape-Key", "S5fyHh7TSGmshLe1LDySQTYiehd5p1XYhQjjsnrqpJaDamiBCe");
+            xhr.setRequestHeader("Accept", "application/json");
+            xhr.send();
+            xhr.addEventListener('load', () => {
+                while (ul.firstChild) {
+                    ul.removeChild(ul.firstChild);
+                }
+                let arr = JSON.parse(xhr.response);
+                for (let i =0;i<arr.length;i++) {
+                    let li = document.createElement('li');
+                    li.textContent = arr[i];
+                    ul.appendChild(li);
+                }
+            })
+        } else { alert('Enter a part of the word'); }
+    }
+</script>
+</body>
+</html>

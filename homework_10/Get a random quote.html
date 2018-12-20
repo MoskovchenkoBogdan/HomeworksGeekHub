@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Get a random quote</title>
+    <style>
+        body {
+            padding: 0;
+            font-family: Arial,sans-serif;
+            margin-top: 60px;
+        }
+        form {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 10px;
+            background: yellow;
+            text-align: center;
+        }
+        #input-text {
+            width: 300px;
+        }
+    </style>
+</head>
+<body>
+<form id="get-random-quote">
+    <input type="text" id="input-text" placeholder="enter the word = 'movies' or 'famous'">
+    <input type="submit" class="input-btn" id="btn_address" value="Готово">
+</form>
+<div id="tagList">
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    const fullName = document.getElementById('tagList');
+    const ul = document.createElement('ul');
+    fullName.appendChild(ul);
+    document.getElementById("get-random-quote").addEventListener("submit", getFullWord);
+
+    function getFullWord(e) {
+        e.preventDefault();
+        let quote = document.getElementById('input-text');
+        if (quote.value !== '') {
+            $.ajax({
+                url : 'https://andruxnet-random-famous-quotes.p.mashape.com/?cat='+quote.value+'&count=6',
+                type: 'GET',
+                headers: { "X-Mashape-Key":"S5fyHh7TSGmshLe1LDySQTYiehd5p1XYhQjjsnrqpJaDamiBCe",
+                    "Accept": "application/json" },
+                success : function(data){
+                    while (ul.firstChild) {
+                                ul.removeChild(ul.firstChild);
+                            }
+                    console.log(data);
+                    let arr = data;
+                        for (let i =0;i<arr.length;i++) {
+                            let li = document.createElement('li');
+                            li.textContent = arr[i].quote;
+                            ul.appendChild(li);
+                        };
+                }
+            });
+        } else { alert('Enter a part of the word'); }
+    }
+</script>
+</body>
+</html>
