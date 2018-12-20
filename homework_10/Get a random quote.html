@@ -40,7 +40,7 @@
     function getFullWord(e) {
         e.preventDefault();
         let quote = document.getElementById('input-text');
-        if (quote.value !== '') {
+        if (quote.value === 'movies' || quote.value === 'famous') {
             $.ajax({
                 url : 'https://andruxnet-random-famous-quotes.p.mashape.com/?cat='+quote.value+'&count=6',
                 type: 'GET',
@@ -50,8 +50,7 @@
                     while (ul.firstChild) {
                                 ul.removeChild(ul.firstChild);
                             }
-                    console.log(data);
-                    let arr = data;
+                        let arr = data;
                         for (let i =0;i<arr.length;i++) {
                             let li = document.createElement('li');
                             li.textContent = arr[i].quote;
@@ -59,7 +58,7 @@
                         };
                 }
             });
-        } else { alert('Enter a part of the word'); }
+        } else { alert("Enter 'movies' or 'famous'"); }
     }
 </script>
 </body>
