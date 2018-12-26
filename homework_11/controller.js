@@ -9,7 +9,7 @@ var Controller = {
     },
 
     test() {
-        return View.reverseList(Model.testLocalStorage(), Model.draggable());
+        return View.reverseList(Model.testLocalStorage(), Model.draggable()), Controller.dragDrop();
     },
 
     remove() {
