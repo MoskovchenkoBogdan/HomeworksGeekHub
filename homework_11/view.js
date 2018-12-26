@@ -12,22 +12,7 @@ var View = {
             let span = document.createElement('span');
             span.innerText = task;
             item.appendChild(span);
-
-            // let removeButton = document.createElement('button');
-            // removeButton.innerText = 'Remove';
-            // removeButton.setAttribute('class', 'removeItem');
-            //
-            // let input = document.createElement("input");
-            // input.setAttribute('class', 'replaceText');
-            //
-            // let replaceButton = document.createElement("button");
-            // replaceButton.innerText = "Replace";
-            // replaceButton.setAttribute('class', 'replaceItem');
-
             list.appendChild(item);
-            // item.appendChild(removeButton);
-            // item.appendChild(input);
-            // item.appendChild(replaceButton);
         }
     },
 
