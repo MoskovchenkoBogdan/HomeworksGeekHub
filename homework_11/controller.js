@@ -1,11 +1,11 @@
 var Controller = {
     create() {
-        return View.createItem(Model.add(), Model.draggable()), Controller.dragDrop();
+        return View.createItem(Model.add(), Model.draggable()), Model.saveLocalStorage(), Controller.dragDrop();
 
     },
 
     reverse() {
-        return View.reverseList(Model.reverse(), Model.draggable()), Controller.dragDrop();
+        return View.reverseList(Model.reverse(), Model.draggable()), Model.saveLocalStorage(), Controller.dragDrop();
     },
 
     test() {
