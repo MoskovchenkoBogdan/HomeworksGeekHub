@@ -1,0 +1,36 @@
+body {
+    font-family: 'Arial Black', sans-serif;
+    background-color: aqua;
+}
+
+#workList {
+    border-radius: 5px;
+    background-color: coral;
+    text-align: center;
+    padding-top: 40px;
+    width: 800px;
+    margin: auto;
+}
+
+#remove {
+    color: indigo;
+}
+
+#add {
+    color: blue;
+}
+
+#reverse {
+    color: goldenrod;
+}
+li {
+    border: 2px solid azure;
+    border-radius: 5px;
+}
+.draggable {
+    opacity: 0.5;
+}
+.under-drag {
+    opacity: 0.5;
+    border-style: dashed;
+}
