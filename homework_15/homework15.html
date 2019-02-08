@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework15</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="homework15.js"></script>
+</head>
+<body>
+<section id="main">
+    <div id="wrapper">
+        <h1>Добро пожаловать в наш foodCort</h1>
+        <div>
+            <button id="makeDinner">Составь перекус</button>
+            <button id="add">Добавь новое блюдо</button>
+            <button id="list">Список блюд</button>
+        </div>
+    </div>
+    <div id="content">
+
+        <div id="foodCheck" class="hidden">
+            <h3>Проверьте свою диету</h3>
+            <div>Введите ожидаемое количество пищи в кКал  <input type="number" id="countCalories"/></div>
+            <div id="findFromList">
+                <span>Введите название блюда на перекус соответствующий меню</span> <input id="findDishFromList"/>
+                <button id="find">Найти</button>
+            </div>
+            <ul id="findList"></ul>
+        </div>
+
+        <div id="foodAdd" class="hidden">
+            <h3>Добавьте блюдо в меню</h3>
+            <form id="addForm" name="addForm">
+                <input id="foodName"  placeholder="Название блюда"/>
+                <input id="numberCalories" type="number" placeholder="количество кКал"/>
+                <button id="menuSend">Добавить в меню</button>
+            </form>
+        </div>
+
+        <div id="menu" class="hidden">
+            <h3>Меню</h3>
+            <ul id="menuList"></ul>
+        </div>
+
+    </div>
+</section>
+</body>
+</html>
