@@ -1,0 +1,277 @@
+/*html { height: 100%; }*/
+/*body {*/
+/*margin: 0; !* Убираем отступы *!*/
+/*height: 100%; !* Высота страницы *!*/
+/*background: url(Pictures/back.png); !* Параметры фона *!*/
+/*background-size: cover; !* Фон занимает всю доступную площадь *!*/
+/*}*/
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+
+    margin: 0;
+    background: url(Pictures/back.png); /* Параметры фона */
+    background-size: cover; /* Фон занимает всю доступную площадь */
+}
+
+canvas {
+    width: 100%;
+}
+
+.wrapper {
+    display: flex;
+    min-height: calc(100vh - 30vh);
+    flex: 1;
+}
+
+.main {
+    flex: 1;
+}
+
+.left, .right {
+    flex: 0 0 40vh;
+}
+
+.left {
+    order: -1;
+}
+
+.left, .right, .header, .footer {
+    padding: 1em;
+    position: relative;
+}
+
+.header, .footer {
+    height: 15vh;
+    display: flex;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.animals li {
+    display: inline-block;
+    height: 62px;
+    width: 60px;
+    cursor: pointer;
+    margin-left: 10px;
+
+}
+
+.animals li:hover {
+    background-position: 0 -62px;
+}
+
+.animals li:active {
+    background-position: 0 -124px;
+}
+
+.animals .buy-cow {
+    background: url(Pictures/buy_cow.png) no-repeat;
+}
+
+.animals .buy-turkey {
+    background: url(Pictures/buy_turkey.png) no-repeat;
+}
+
+.animals .buy-cat {
+    background: url(Pictures/buy_cat_1.png) no-repeat;
+}
+
+.animals .buy-dog {
+    background: url(Pictures/buy_dog_1.png) no-repeat;
+}
+
+.animals .buy-sheep {
+    background: url(Pictures/buy_sheep.png) no-repeat;
+}
+
+.place-1, .place-2, .place-3, .place-4, .place-5, .place-6 {
+    display: inline-block;
+    height: 142px;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+
+}
+
+#EggDryer {
+    display: inline-block;
+    background: url(Pictures/eggDryer1.png) no-repeat;
+    height: 114px;
+    width: 128px;
+}
+
+.place-2 div {
+    display: inline-block;
+    background: url(Pictures/wheat1.png) no-repeat;
+    height: 142px;
+    width: 134px;
+}
+
+.place-3 div {
+    display: inline-block;
+    background: url(Pictures/cakeMaker1.png) no-repeat;
+    height: 184px;
+    width: 172px;
+}
+
+.place-4 div {
+    display: inline-block;
+    background: url(Pictures/milkMaker1.png) no-repeat;
+    height: 112px;
+    width: 136px;
+}
+
+.place-5 div {
+    display: inline-block;
+    background: url(Pictures/stringMaker1.png) no-repeat;
+    height: 106px;
+    width: 130px;
+}
+
+.place-6 div {
+    display: inline-block;
+    background: url(Pictures/canvasMaker1.png) no-repeat;
+    height: 116px;
+    width: 166px;
+}
+
+#buyEggDryer {
+    height: 30px;
+    width: 84px;
+    margin-top: 40px;
+    background: url(Pictures/upgrade.png) no-repeat;
+    border-radius: 40px;
+}
+
+#buyPancakesMaker {
+    height: 30px;
+    width: 84px;
+    margin-top: 40px;
+    background: url(Pictures/upgrade.png) no-repeat;
+    border-radius: 40px;
+}
+
+#buyCakeMaker {
+    height: 30px;
+    width: 84px;
+    margin-top: 40px;
+    background: url(Pictures/upgrade.png) no-repeat;
+    border-radius: 40px;
+}
+
+#buyMilkMaker {
+    height: 30px;
+    width: 84px;
+    margin-top: 40px;
+    background: url(Pictures/upgrade.png) no-repeat;
+    border-radius: 40px;
+}
+
+#buyStringMaker {
+    height: 30px;
+    width: 84px;
+    margin-top: 40px;
+    background: url(Pictures/upgrade.png) no-repeat;
+    border-radius: 40px;
+}
+
+#buyCanvasMaker {
+    height: 30px;
+    width: 84px;
+    margin-top: 40px;
+    background: url(Pictures/upgrade.png) no-repeat;
+    border-radius: 40px;
+}
+
+.warehouse {
+    display: inline-block;
+    margin-left: 6%;
+    height: 148px;
+    width: 180px;
+    background: url(Pictures/warehouse.png) no-repeat;
+}
+
+.mobile {
+    display: inline-block;
+    margin-left: 18%;
+    height: 130px;
+    width: 130px;
+    background: url(Pictures/mobile.png) no-repeat;
+}
+
+.well {
+    display: inline-block;
+    margin-left: 2%;
+    height: 168px;
+    width: 158px;
+    background: url(Pictures/well.png) no-repeat;
+}
+
+.tasks {
+    height: 160px;
+    width: 100%;
+}
+
+.tasks ul {
+
+    display: flex;
+    padding: 5px;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.tasks li {
+    width: 60px;
+    height: 140px;
+    background-color: rgba(49, 110, 224, 0.7);
+}
+
+.tasks li div {
+    background: url(Pictures/coin.png) no-repeat;
+    height: 32px;
+    width: 32px;
+    margin-left: 12px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+p {
+    text-align: center;
+}
+
+.money {
+    margin-left: 30px;
+    padding-top: 7px;
+    width: 300px;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.moneyImage {
+    width: 32px;
+    height: 32px;
+    background: url(Pictures/coin.png) no-repeat;
+}
+
+p {
+    text-align: center;
+    font-size: 25px;
+
+}
+
+.money p{
+    margin-top: 2px;
+    margin-left: 7px;
+}
+
+
+
