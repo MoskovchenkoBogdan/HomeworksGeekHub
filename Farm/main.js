@@ -1,23 +1,59 @@
-var speed = 8;
-var counter1 = 2;
 var gold = 30000;
+var goods = {
+    eggs: 30,
+    wheat: 10,
+    pancakes: 10,
+    cakes: 10,
+    wool: 30,
+    strings: 30,
+    leather: 30,
+    milk: 30,
+    kefir: 10
+};
+let eggsCounter = 0;
+let wheatCounter = 0;
+let cakesCounter = 0;
+let pancakesCounter = 0;
+let woolCounter = 0;
+let stringsCounter = 0;
+let leatherCounter = 0;
+let milkCounter = 0;
+let kefirCounter = 0;
+
+let goldCheck = document.getElementById('moneyAmount');
+
+showGold();
+
+function showGold() {
+    goldCheck.innerText = gold;
+    console.log('gold = ', gold)
+}
 
 var game = {
-    width: 960,
-    height: 480,
+    width: 856,
+    height: 428,
     ctx: undefined,
     isRunning: true,
+    eggs: [],
+    wheat: [],
+    pancakes: [],
+    cakes: [],
+    wool: [],
+    strings: [],
+    leather: [],
+    milk: [],
+    kefir: [],
     turkeys: [],
     cats: [],
     dogs: [],
     sheep: [],
-    bears: undefined,
+    bears: [],
     cows: [],
     sprites: {
-        cats: undefined,
-        dogs: undefined,
-        sheep: undefined,
-        bears: undefined,
+        cats: [],
+        dogs: [],
+        sheep: [],
+        bears: [],
         turkeys: [],
         cows: []
     },
@@ -48,11 +84,133 @@ var game = {
             this.sheep[i].sprites = new Image();
             this.sheep[i].sprites.src = "Pictures/sheepLeft.png";
         }
+        for (let i = 0; i < this.wheat.length; i++) {
+            this.wheat[i].sprites = new Image();
+            this.wheat[i].sprites.src = "Pictures/eggWheat.png";
+        }
+        for (let i = 0; i < this.eggs.length; i++) {
+            this.eggs[i].sprites = new Image();
+            this.eggs[i].sprites.src = "Pictures/egg.png";
+        }
+        for (let i = 0; i < this.pancakes.length; i++) {
+            this.pancakes[i].sprites = new Image();
+            this.pancakes[i].sprites.src = "Pictures/pancakes.png";
+        }
+        for (let i = 0; i < this.cakes.length; i++) {
+            this.cakes[i].sprites = new Image();
+            this.cakes[i].sprites.src = "Pictures/cake.png";
+        }
+        for (let i = 0; i < this.wool.length; i++) {
+            this.wool[i].sprites = new Image();
+            this.wool[i].sprites.src = "Pictures/wool.png";
+        }
+        for (let i = 0; i < this.strings.length; i++) {
+            this.strings[i].sprites = new Image();
+            this.strings[i].sprites.src = "Pictures/string.png";
+        }
+        for (let i = 0; i < this.leather.length; i++) {
+            this.leather[i].sprites = new Image();
+            this.leather[i].sprites.src = "Pictures/canvas.png";
+        }
+        for (let i = 0; i < this.milk.length; i++) {
+            this.milk[i].sprites = new Image();
+            this.milk[i].sprites.src = "Pictures/milk.png";
+        }
+        for (let i = 0; i < this.kefir.length; i++) {
+            this.kefir[i].sprites = new Image();
+            this.kefir[i].sprites.src = "Pictures/kefir.png";
+        }
+
     },
     start: function () {
         this.init();
         this.load();
         this.run();
+    },
+
+    click: function (x, y) {
+
+        this.wheat.forEach(function (element, i) {
+            if (x >= element.x && x <= element.x + element.width && y >= element.y &&
+                y <= element.y + element.height) {
+                this.wheat.splice(i, 1);
+                goods.wheat = goods.wheat + 1;
+                console.log('goods.wheat =', goods.wheat)
+            }
+        }, this);
+
+        this.eggs.forEach(function (element, i) {
+            if (x >= element.x && x <= element.x + element.width && y >= element.y &&
+                y <= element.y + element.height) {
+                this.eggs.splice(i, 1);
+                goods.eggs = goods.eggs + 1;
+                console.log('goods.eggs =', goods.eggs)
+            }
+        }, this);
+
+        this.cakes.forEach(function (element, i) {
+            if (x >= element.x && x <= element.x + element.width && y >= element.y &&
+                y <= element.y + element.height) {
+                this.cakes.splice(i, 1);
+                goods.cakes = goods.cakes + 1;
+                console.log('goods.cakes =', goods.cakes)
+            }
+        }, this);
+
+        this.leather.forEach(function (element, i) {
+            if (x >= element.x && x <= element.x + element.width && y >= element.y &&
+                y <= element.y + element.height) {
+                this.leather.splice(i, 1);
+                goods.leather = goods.leather + 1;
+                console.log('goods.leather =', goods.leather)
+            }
+        }, this);
+
+        this.wool.forEach(function (element, i) {
+            if (x >= element.x && x <= element.x + element.width && y >= element.y &&
+                y <= element.y + element.height) {
+                this.wool.splice(i, 1);
+                goods.wool = goods.wool + 1;
+                console.log('goods.wool =', goods.wool)
+            }
+        }, this);
+
+        this.strings.forEach(function (element, i) {
+            if (x >= element.x && x <= element.x + element.width && y >= element.y &&
+                y <= element.y + element.height) {
+                this.strings.splice(i, 1);
+                goods.strings = goods.strings + 1;
+                console.log('goods.strings =', goods.strings)
+            }
+        }, this);
+
+        this.pancakes.forEach(function (element, i) {
+            if (x >= element.x && x <= element.x + element.width && y >= element.y &&
+                y <= element.y + element.height) {
+                this.pancakes.splice(i, 1);
+                goods.pancakes = goods.pancakes + 1;
+                console.log('goods.pancakes =', goods.pancakes)
+            }
+        }, this);
+
+        this.milk.forEach(function (element, i) {
+            if (x >= element.x && x <= element.x + element.width && y >= element.y &&
+                y <= element.y + element.height) {
+                this.milk.splice(i, 1);
+                goods.milk = goods.milk + 1;
+                console.log('goods.milk =', goods.milk)
+            }
+        }, this);
+
+        this.kefir.forEach(function (element, i) {
+            if (x >= element.x && x <= element.x + element.width && y >= element.y &&
+                y <= element.y + element.height) {
+                this.kefir.splice(i, 1);
+                goods.kefir = goods.kefir + 1;
+                console.log('goods.kefir =', goods.kefir)
+            }
+        }, this);
+
     },
 
     render: function () {
@@ -82,6 +240,42 @@ var game = {
             this.ctx.drawImage(this.sheep[i].sprites, this.sheep[i].width * this.sheep[i].frame, 0, this.sheep[i].width,
                 this.sheep[i].height, this.sheep[i].x, this.sheep[i].y, this.sheep[i].width, this.sheep[i].height);
         }
+
+        this.wheat.forEach(function (element) {
+            this.ctx.drawImage(element.sprites, element.x, element.y)
+        }, this);
+
+        this.eggs.forEach(function (element) {
+            this.ctx.drawImage(element.sprites, element.x, element.y)
+        }, this);
+
+        this.pancakes.forEach(function (element) {
+            this.ctx.drawImage(element.sprites, element.x, element.y)
+        }, this);
+
+        this.cakes.forEach(function (element) {
+            this.ctx.drawImage(element.sprites, element.x, element.y)
+        }, this);
+
+        this.wool.forEach(function (element) {
+            this.ctx.drawImage(element.sprites, element.x, element.y)
+        }, this);
+
+        this.strings.forEach(function (element) {
+            this.ctx.drawImage(element.sprites, element.x, element.y)
+        }, this);
+
+        this.leather.forEach(function (element) {
+            this.ctx.drawImage(element.sprites, element.x, element.y)
+        }, this);
+
+        this.milk.forEach(function (element) {
+            this.ctx.drawImage(element.sprites, element.x, element.y)
+        }, this);
+
+        this.kefir.forEach(function (element) {
+            this.ctx.drawImage(element.sprites, element.x, element.y)
+        }, this);
 
 
     },
@@ -260,45 +454,83 @@ game.turkeys[0] = {
         "Pictures/turkeyUp.png",
 };
 
+game.wheat[0] = {
+    x: 200,
+    y: 200,
+    width: 48,
+    height: 48,
+};
 
-window.addEventListener('load', function () {
-    game.start();
-});
+game.eggs[0] = {
+    x: 500,
+    y: 200,
+    width: 48,
+    height: 48,
+};
 
-// Анимация строений
-var wheatHouse = document.getElementById('EggDryer');
-wheatHouse.addEventListener('click', () => {
-    let start = Date.now();
-    var q = 0;
-    let counter = 0;
-    requestAnimationFrame(step);
+game.pancakes[0] = {
+    x: 100,
+    y: 400,
+    width: 48,
+    height: 48,
+};
 
-    function step() {
-        let timestamp = Date.now();
+game.cakes[0] = {
+    x: 220,
+    y: 20,
+    width: 48,
+    height: 48,
+};
 
-        let progress = timestamp - start;
+game.wool[0] = {
+    x: 150,
+    y: 430,
+    width: 48,
+    height: 48,
+};
 
-        if (q > 15) {
-            counter = counter + 15
-        }
-        q = Math.floor(progress / 60) - counter;
-        console.log('progress' + progress + '  q=' + q);
-        wheatHouse.style.backgroundPosition = -q * 128 + 'px';
-        if (progress >= 5000) {
-            wheatHouse.style.backgroundPosition = '0px';
-        }
-        if (progress < 5000) {
-            requestAnimationFrame(step);
-        }
-    }
+game.strings[0] = {
+    x: 340,
+    y: 340,
+    width: 48,
+    height: 48,
+};
 
+game.leather[0] = {
+    x: 600,
+    y: 200,
+    width: 48,
+    height: 48,
+};
 
-});
+game.milk[0] = {
+    x: 500,
+    y: 100,
+    width: 48,
+    height: 48,
+};
+
+game.kefir[0] = {
+    x: 250,
+    y: 250,
+    width: 48,
+    height: 48,
+};
+
 
 var timerId = setInterval(function () {
     counter1 = Math.floor(Math.random() * 7);
 }, 4000);
 
+var myCanvas = document.getElementById('myCanvas');
+
+myCanvas.addEventListener('click', function (event) {
+    var rect = myCanvas.getBoundingClientRect();
+    var x = event.clientX - rect.left;
+    var y = event.clientY - rect.top;
+    console.log(x, y);
+    game.click(x, y);
+}, false);
 
 //классы зверей
 
@@ -404,6 +636,24 @@ class Turkey {
 
     };
 
+    eggs() {
+        game.isRunning = false;
+        let egg = {
+            x: this.x,
+            y: this.y,
+            width: 42,
+            height: 42
+        };
+        game.eggs.push(egg);
+        let promise = new Promise(() => {
+            console.log('stage1');
+            game.eggs[game.eggs.length - 1].sprites = new Image();
+            game.eggs[game.eggs.length - 1].sprites.src = 'Pictures/egg.png';
+        }).then(
+            game.isRunning = true
+        );
+    };
+
     checkBounds() {
         var x = this.x + this.dx;
         var y = this.y + this.dy;
@@ -426,6 +676,7 @@ class Turkey {
         }
     }
 }
+
 
 class Cow {
     constructor(x, y) {
@@ -552,8 +803,7 @@ class Cow {
 }
 
 
-
-class Sheep{
+class Sheep {
     constructor(x, y) {
         this.width = 130;
         this.height = 78;
@@ -925,28 +1175,41 @@ class Dog {
 }
 
 
-
-
 // добавление индюшек
 var turkeyNew = document.getElementById('turkey');
 
 turkeyNew.addEventListener('click', () => {
-    let x = Math.floor(Math.random() * 900);
-    let y = Math.floor(Math.random() * 400);
-    let turkey = new Turkey(x, y);
-    game.isRunning = false;
-    game.turkeys.push(turkey);
-    let number = game.turkeys.length-1;
-    var timerId = setInterval(function () {
-        game.turkeys[number].counter = Math.floor(Math.random() * 8);
-    }, 4000);
+    if (gold > 100) {
+        let x = Math.floor(Math.random() * 800);
+        let y = Math.floor(Math.random() * 400);
+        let turkey = new Turkey(x, y);
+        game.isRunning = false;
+        game.turkeys.push(turkey);
+        let number = game.turkeys.length - 1;
+        var timerId = setTimeout(function tick() {
 
-    let promise = new Promise (() => {
-         game.turkeys[game.turkeys.length-1].sprites = new Image();
+            game.turkeys[number].counter = Math.floor(Math.random() * 8);
 
-    }).then(
-        game.isRunning = true
-    )
+            timerId = setTimeout(tick, 4000)
+        }, 4000);
+
+        var timerIdNew = setTimeout(function tick() {
+
+            game.turkeys[number].eggs();
+
+            timerIdNew = setTimeout(tick, 10000)
+        }, 10000);
+
+        let promise = new Promise(() => {
+            game.turkeys[game.turkeys.length - 1].sprites = new Image();
+
+        }).then(
+            game.isRunning = true
+        );
+        gold = gold - 100;
+        showGold(gold);
+        console.log(gold);
+    }
 
 
 });
@@ -957,22 +1220,27 @@ turkeyNew.addEventListener('click', () => {
 var cowNew = document.getElementById('cow');
 
 cowNew.addEventListener('click', () => {
-    let x = Math.floor(Math.random() * 900);
-    let y = Math.floor(Math.random() * 400);
-    let cow = new Cow(x, y);
-    game.isRunning = false;
-    game.cows.push(cow);
-    let number = game.cows.length-1;
-    var timerId = setInterval(function () {
-        game.cows[number].counter = Math.floor(Math.random() * 8);
-    }, 4000);
+    if (gold > 10000) {
+        let x = Math.floor(Math.random() * 800);
+        let y = Math.floor(Math.random() * 400);
+        let cow = new Cow(x, y);
+        game.isRunning = false;
+        game.cows.push(cow);
+        let number = game.cows.length - 1;
+        var timerId = setInterval(function () {
+            game.cows[number].counter = Math.floor(Math.random() * 8);
+        }, 4000);
 
-    let promise = new Promise (() => {
-        game.cows[game.cows.length-1].sprites = new Image();
+        let promise = new Promise(() => {
+            game.cows[game.cows.length - 1].sprites = new Image();
 
-    }).then(
-        game.isRunning = true
-    )
+        }).then(
+            game.isRunning = true
+        );
+        gold = gold - 10000;
+        showGold();
+        console.log(gold);
+    }
 
 
 });
@@ -982,22 +1250,28 @@ cowNew.addEventListener('click', () => {
 var sheepNew = document.getElementById('sheep');
 
 sheepNew.addEventListener('click', () => {
-    let x = Math.floor(Math.random() * 900);
-    let y = Math.floor(Math.random() * 400);
-    let sheep = new Sheep(x, y);
-    game.isRunning = false;
-    game.sheep.push(sheep);
-    let number = game.sheep.length-1;
-    var timerId = setInterval(function () {
-        game.sheep[number].counter = Math.floor(Math.random() * 8);
-    }, 4000);
+    if (gold > 1000) {
+        let x = Math.floor(Math.random() * 800);
+        let y = Math.floor(Math.random() * 400);
+        let sheep = new Sheep(x, y);
+        game.isRunning = false;
+        game.sheep.push(sheep);
+        let number = game.sheep.length - 1;
+        var timerId = setInterval(function () {
+            game.sheep[number].counter = Math.floor(Math.random() * 8);
+        }, 4000);
 
-    let promise = new Promise (() => {
-        game.sheep[game.sheep.length-1].sprites = new Image();
+        let promise = new Promise(() => {
+            game.sheep[game.sheep.length - 1].sprites = new Image();
 
-    }).then(
-        game.isRunning = true
-    )
+        }).then(
+            game.isRunning = true
+        );
+        gold = gold - 1000;
+        showGold();
+        console.log(gold);
+    }
+
 });
 
 // Добавление котиков
@@ -1005,21 +1279,26 @@ sheepNew.addEventListener('click', () => {
 var catNew = document.getElementById('cat');
 
 catNew.addEventListener('click', () => {
-    let x = Math.floor(Math.random() * 900);
-    let y = Math.floor(Math.random() * 400);
-    let cat = new Cat(x, y);
-    game.isRunning = false;
-    game.cats.push(cat);
-    let number = game.cats.length-1;
-    var timerId = setInterval(function () {
-        game.cats[number].counter = Math.floor(Math.random() * 8);
-    }, 4000);
+    if (gold > 2500) {
+        let x = Math.floor(Math.random() * 800);
+        let y = Math.floor(Math.random() * 400);
+        let cat = new Cat(x, y);
+        game.isRunning = false;
+        game.cats.push(cat);
+        let number = game.cats.length - 1;
+        var timerId = setInterval(function () {
+            game.cats[number].counter = Math.floor(Math.random() * 8);
+        }, 4000);
 
-    let promise = new Promise (() => {
-        game.cats[game.cats.length-1].sprites = new Image();
-    }).then(
-        game.isRunning = true
-    )
+        let promise = new Promise(() => {
+            game.cats[game.cats.length - 1].sprites = new Image();
+        }).then(
+            game.isRunning = true
+        );
+        gold = gold - 2500;
+        showGold();
+        console.log(gold);
+    }
 
 
 });
@@ -1029,22 +1308,27 @@ catNew.addEventListener('click', () => {
 var dogNew = document.getElementById('dog');
 
 dogNew.addEventListener('click', () => {
-    let x = Math.floor(Math.random() * 900);
-    let y = Math.floor(Math.random() * 400);
-    let dog = new Dog(x, y);
-    game.isRunning = false;
-    game.dogs.push(dog);
-    let number = game.dogs.length-1;
-    var timerId = setInterval(function () {
-        game.dogs[number].counter = Math.floor(Math.random() * 8);
-    }, 4000);
+    if (gold > 2600) {
+        let x = Math.floor(Math.random() * 800);
+        let y = Math.floor(Math.random() * 400);
+        let dog = new Dog(x, y);
+        game.isRunning = false;
+        game.dogs.push(dog);
+        let number = game.dogs.length - 1;
+        var timerId = setInterval(function () {
+            game.dogs[number].counter = Math.floor(Math.random() * 8);
+        }, 4000);
 
-    let promise = new Promise (() => {
-        game.dogs[game.dogs.length-1].sprites = new Image();
+        let promise = new Promise(() => {
+            game.dogs[game.dogs.length - 1].sprites = new Image();
 
-    }).then(
-        game.isRunning = true
-    )
+        }).then(
+            game.isRunning = true
+        );
+        gold = gold - 2600;
+        showGold();
+        console.log(gold);
+    }
 
 
 });
@@ -1052,53 +1336,123 @@ dogNew.addEventListener('click', () => {
 // Building handler
 
 let place = {
-    place1: [1, '128px', '114px', '144px', '132px', '164px', '150px', '186px', '158px'],
-    place2: [1, '134px', '142px', '158px', '150px', '158px', '166px', '166px', '170px',],
-    place3: [1, '184px', '172px', '158px', '148px', '170px', '168px', '176px', '170px',],
-    place4: [1, '136px', '112px', '146px', '130px', '148px', '136px', '158px', '148px',],
-    place5: [1, '130px', '106px', '138px', '150px', '178px', '146px', '176px', '182px',],
-    place6: [1, '166px', '116px', '148px', '132px', '164px', '126px', '148px', '156px',],
+    place1: [1, '128', '114', '144', '132', '164', '150', '186', '158', true],
+    place2: [1, '134', '142', '158', '150', '158', '166', '166', '170', true],
+    place3: [1, '184', '172', '158', '148', '170', '168', '176', '170', true],
+    place4: [1, '136', '112', '146', '130', '148', '136', '158', '148', true],
+    place5: [1, '130', '106', '138', '150', '178', '146', '176', '182', true],
+    place6: [1, '166', '116', '148', '132', '164', '126', '148', '156', true],
 
 };
 
-function buildHandler (place, buildingMain, href1, href2, href3, href4, width1, height1, width2, height2,
-                       width3, height3, width4, height4) {
-    if(place === 1) {
-        buildingMain.style.background = href1;
-        buildingMain.style.width = width1;
-        buildingMain.style.height = height1;
+function buildHandler(place, buildingMain, href1, href2, href3, href4, width1, height1, width2, height2,
+                      width3, height3, width4, height4) {
+    if (place === 1) {
+        buildingMain.style.background = 'url("' + href1 + '")';
+        buildingMain.style.width = width1 + 'px';
+        buildingMain.style.height = height1 + 'px';
     }
-    if(place === 2) {
-        buildingMain.style.background = href2;
-        buildingMain.style.width = width2;
-        buildingMain.style.height = height2;
+    if (place === 2) {
+        buildingMain.style.background = 'url("' + href2 + '")';
+        buildingMain.style.width = width2 + 'px';
+        buildingMain.style.height = height2 + 'px';
     }
-    if(place === 3) {
-        buildingMain.style.background = href3;
-        buildingMain.style.width = width3;
-        buildingMain.style.height = height3;
+    if (place === 3) {
+        buildingMain.style.background = 'url("' + href3 + '")';
+        buildingMain.style.width = width3 + 'px';
+        buildingMain.style.height = height3 + 'px';
     }
-    if(place === 4) {
-        buildingMain.style.background = href4;
-        buildingMain.style.width = width4;
-        buildingMain.style.height = height4;
+    if (place === 4) {
+        buildingMain.style.background = 'url("' + href4 + '")';
+        buildingMain.style.width = width4 + 'px';
+        buildingMain.style.height = height4 + 'px';
     }
 };
 
 // eggdryer handler
+
 let buyEggDryer = document.getElementById('buyEggDryer');
 let eggDryer = document.getElementById('EggDryer');
 buyEggDryer.addEventListener('click', () => {
-    if (gold > place.place1[0] * 150 && place.place1[0] !== 5) {
-        console.log('1');
-        buildHandler(place.place1[0], eggDryer, 'Pictures/eggDryer1.png', 'Pictures/eggDryer2.png', 'Pictures/eggDryer3.png',
-            'Pictures/eggDryer4.png', place.place1[1], place.place1[2], place.place1[3], place.place1[4], place.place1[5],
-            place.place1[6], place.place1[7], place.place1[8]);
-        let btnText = document.getElementById('buyEggDryer');
-        btnText.innerText = 150 * place.place1[0] +150;
-        place.place1[0]++;
-        gold = gold - place.place1[0] * 150;
-        console.log(gold);
+    if (place.place1[9]) {
+        if (gold > place.place1[0] * 150 && place.place1[0] !== 5) {
+            console.log('1');
+            buildHandler(place.place1[0], eggDryer, 'Pictures/eggDryer1.png', 'Pictures/eggDryer2.png', 'Pictures/eggDryer3.png',
+                'Pictures/eggDryer4.png', place.place1[1], place.place1[2], place.place1[3], place.place1[4], place.place1[5],
+                place.place1[6], place.place1[7], place.place1[8]);
+            let btnText = document.getElementById('buyEggDryer');
+            btnText.innerText = 150 * place.place1[0] + 150;
+            place.place1[0]++;
+            gold = gold - place.place1[0] * 150;
+            showGold();
+            console.log(gold);
+        }
+    }
+});
+eggDryer.addEventListener('click', () => {
+    if (place.place1[0] === 2 && goods.eggs >= 2 && place.place1[9]) {
+
+        place.place1[9] = false;
+        goods.eggs = goods.eggs - 2;
+        eggsCounter = 1;
+        buidingAnimation(eggDryer, place.place1[1], 1)
+
+    } else {
+
+        if (place.place1[0] === 3 && place.place1[9] && goods.eggs >= 2) {
+            if (goods.eggs >= 4) {
+                goods.eggs = goods.eggs - 4;
+                eggsCounter = 2;
+            } else {
+                goods.eggs = goods.eggs - 2;
+                eggsCounter = 2;
+            }
+            place.place1[9] = false;
+            buidingAnimation(eggDryer, place.place1[3], 1);
+
+        } else {
+
+            if (place.place1[0] === 4 && place.place1[9] && goods.eggs >= 2) {
+
+                if (goods.eggs >= 6) {
+                    goods.eggs = goods.eggs - 6;
+                    eggsCounter = 3;
+                } else {
+                    if (goods.eggs >= 4) {
+                        goods.eggs = goods.eggs - 4;
+                        eggsCounter = 2;
+                    } else {
+                        goods.eggs = goods.eggs - 2;
+                        eggsCounter = 1;
+                    }
+                }
+
+                place.place1[9] = false;
+                buidingAnimation(eggDryer, place.place1[5], 1);
+            } else {
+                if (place.place1[0] === 5 && place.place1[9] && goods.eggs >= 2) {
+                    if (goods.eggs >= 8) {
+                        goods.eggs = goods.eggs - 8;
+                        eggsCounter = 4;
+                    } else {
+                        if (goods.eggs >= 6) {
+                            goods.eggs = goods.eggs - 6;
+                            eggsCounter = 3;
+                        } else {
+                            if (goods.eggs >= 4) {
+                                goods.eggs = goods.eggs - 4;
+                                eggsCounter = 2;
+                            } else {
+                                goods.eggs = goods.eggs - 2;
+                                eggsCounter = 1;
+                            }
+                        }
+                    }
+                    place.place1[9] = false;
+                    buidingAnimation(eggDryer, place.place1[7], 1);
+                }
+            }
+        }
     }
 });
 
@@ -1106,14 +1460,84 @@ buyEggDryer.addEventListener('click', () => {
 let buyPancakesMaker = document.getElementById('buyPancakesMaker');
 let pancakesMaker = document.getElementById('pancakesMaker');
 buyPancakesMaker.addEventListener('click', () => {
-    if (gold > place.place2[0] * 150 && place.place2[0] !== 5) {
-        console.log('2');
-        buildHandler(place.place2[0], pancakesMaker, 'Pictures/wheat1.png', 'Pictures/wheat2.png', 'Pictures/wheat3.png',
-            'Pictures/wheat4.png', place.place2[1], place.place2[2], place.place2[3], place.place2[4], place.place2[5],
-            place.place2[6], place.place2[7], place.place2[8]);
-        place.place2[0]++;
-        gold = gold - place.place2[0] * 150;
-        console.log(gold);
+    if (place.place2[9]) {
+        if (gold > place.place2[0] * 150 && place.place2[0] !== 5) {
+            console.log('2');
+            buildHandler(place.place2[0], pancakesMaker, 'Pictures/wheat1.png', 'Pictures/wheat2.png', 'Pictures/wheat3.png',
+                'Pictures/wheat4.png', place.place2[1], place.place2[2], place.place2[3], place.place2[4], place.place2[5],
+                place.place2[6], place.place2[7], place.place2[8]);
+            let btnText = document.getElementById('buyPancakesMaker');
+            btnText.innerText = 150 * place.place2[0] + 150;
+            place.place2[0]++;
+            gold = gold - place.place2[0] * 150;
+            showGold();
+            console.log(gold);
+        }
+    }
+});
+pancakesMaker.addEventListener('click', () => {
+    if (place.place2[0] === 2 && goods.wheat >= 2 && place.place2[9]) {
+        wheatCounter = 1;
+        goods.wheat = goods.wheat - 2;
+        place.place2[9] = false;
+        buidingAnimation(pancakesMaker, place.place2[1], 2)
+    } else {
+        if (place.place2[0] === 3 && place.place2[9] && goods.wheat >= 2) {
+
+            if (goods.wheat >= 4) {
+                wheatCounter = 2;
+                goods.wheat = goods.wheat - 4;
+            } else {
+                goods.wheat = goods.wheat - 2;
+                wheatCounter = 1;
+            }
+
+            place.place2[9] = false;
+            buidingAnimation(pancakesMaker, place.place2[3], 2)
+        } else {
+            if (place.place2[0] === 4 && place.place2[9] && goods.wheat >= 2) {
+
+                if (goods.wheat >= 6) {
+                    wheatCounter = 3;
+                    goods.wheat = goods.wheat - 6;
+                } else {
+                    if (goods.wheat >= 4) {
+                        goods.wheat = goods.wheat - 4;
+                        wheatCounter = 2;
+                    } else {
+                        wheatCounter = 1;
+                        goods.wheat = goods.wheat - 2;
+                    }
+                }
+
+                place.place2[9] = false;
+                buidingAnimation(pancakesMaker, place.place2[5], 2)
+            } else {
+                if (place.place2[0] === 5 && place.place2[9] && goods.wheat >= 2) {
+
+                    if (goods.wheat >= 8) {
+                        wheatCounter = 4;
+                        goods.wheat = goods.wheat - 8;
+                    } else {
+                        if (goods.wheat >= 6) {
+                            wheatCounter = 3;
+                            goods.wheat = goods.wheat - 6;
+                        } else {
+                            if (goods.wheat >= 4) {
+                                wheatCounter = 2;
+                                goods.wheat = goods.wheat - 4;
+                            } else {
+                                wheatCounter = 1;
+                                goods.wheat = goods.wheat - 2;
+                            }
+                        }
+                    }
+
+                    place.place2[9] = false;
+                    buidingAnimation(pancakesMaker, place.place2[7], 2)
+                }
+            }
+        }
     }
 });
 
@@ -1121,14 +1545,88 @@ buyPancakesMaker.addEventListener('click', () => {
 let buyCakeMaker = document.getElementById('buyCakeMaker');
 let cakeMaker = document.getElementById('cakeMaker');
 buyCakeMaker.addEventListener('click', () => {
-    if (gold > place.place3[0] * 150 && place.place3[0] !== 5) {
-        console.log('3');
-        buildHandler(place.place3[0], cakeMaker, 'Pictures/cakeMaker1.png', 'Pictures/cakeMaker2.png', 'Pictures/cakeMaker3.png',
-            'Pictures/cakeMaker4.png', place.place3[1], place.place3[2], place.place3[3], place.place3[4], place.place3[5],
-            place.place3[6], place.place3[7], place.place3[8]);
-        place.place3[0]++;
-        gold = gold - place.place3[0] * 150;
-        console.log(gold);
+    if (place.place3[9]) {
+        if (gold > place.place3[0] * 150 && place.place3[0] !== 5) {
+            console.log('3');
+            buildHandler(place.place3[0], cakeMaker, 'Pictures/cakeMaker1.png', 'Pictures/cakeMaker2.png', 'Pictures/cakeMaker3.png',
+                'Pictures/cakeMaker4.png', place.place3[1], place.place3[2], place.place3[3], place.place3[4], place.place3[5],
+                place.place3[6], place.place3[7], place.place3[8]);
+            let btnText = document.getElementById('buyCakeMaker');
+            btnText.innerText = 150 * place.place3[0] + 150;
+            place.place3[0]++;
+            gold = gold - place.place3[0] * 150;
+            showGold();
+            console.log(gold);
+        }
+    }
+});
+cakeMaker.addEventListener('click', () => {
+    if (place.place3[0] === 2 && place.place3[9] && goods.pancakes >= 2 && goods.wheat >= 1) {
+        pancakesCounter = 1;
+        goods.wheat = goods.wheat - 1;
+        goods.pancakes = goods.pancakes - 2;
+        place.place3[9] = false;
+        buidingAnimation(cakeMaker, place.place3[1], 3)
+    } else {
+        if (place.place3[0] === 3 && place.place3[9] && goods.pancakes >= 2 && goods.wheat >= 1) {
+            if (goods.pancakes >= 4 && goods.wheat >= 2) {
+                pancakesCounter = 2;
+                goods.wheat = goods.wheat - 2;
+                goods.pancakes = goods.pancakes - 4;
+            } else {
+                pancakesCounter = 1;
+                goods.wheat = goods.wheat - 1;
+                goods.pancakes = goods.pancakes - 2;
+            }
+            place.place3[9] = false;
+            buidingAnimation(cakeMaker, place.place3[3], 3)
+        } else {
+            if (place.place3[0] === 4 && place.place3[9] && goods.pancakes >= 2 && goods.wheat >= 1) {
+                if (goods.pancakes >= 6 && goods.wheat >= 3) {
+                    pancakesCounter = 3;
+                    goods.wheat = goods.wheat - 3;
+                    goods.pancakes = goods.pancakes - 6;
+                } else {
+                    if (goods.pancakes >= 4 && goods.wheat >= 2) {
+                        pancakesCounter = 2;
+                        goods.wheat = goods.wheat - 2;
+                        goods.pancakes = goods.pancakes - 4;
+                    } else {
+                        pancakesCounter = 1;
+                        goods.wheat = goods.wheat - 1;
+                        goods.pancakes = goods.pancakes - 2;
+                    }
+                }
+                place.place3[9] = false;
+                buidingAnimation(cakeMaker, place.place3[5], 3)
+            } else {
+                if (place.place3[0] === 5 && place.place3[9] && goods.pancakes >= 2 && goods.wheat >= 1) {
+                    if (goods.pancakes >= 8 && goods.wheat >= 4) {
+                        pancakesCounter = 4;
+                        goods.wheat = goods.wheat - 4;
+                        goods.pancakes = goods.pancakes - 8;
+                    } else {
+                        if (goods.pancakes >= 6 && goods.wheat >= 3) {
+                            pancakesCounter = 3;
+                            goods.wheat = goods.wheat - 3;
+                            goods.pancakes = goods.pancakes - 6;
+                        } else {
+                            if (goods.pancakes >= 4 && goods.wheat >= 2) {
+                                pancakesCounter = 2;
+                                goods.wheat = goods.wheat - 2;
+                                goods.pancakes = goods.pancakes - 4;
+                            } else {
+                                pancakesCounter = 1;
+                                goods.wheat = goods.wheat - 1;
+                                goods.pancakes = goods.pancakes - 2;
+                            }
+                        }
+                    }
+                    place.place3[9] = false;
+                    buidingAnimation(cakeMaker, place.place3[7], 3)
+                }
+            }
+        }
     }
 });
 
@@ -1137,14 +1635,86 @@ buyCakeMaker.addEventListener('click', () => {
 let buyMilkMaker = document.getElementById('buyMilkMaker');
 let milkMaker = document.getElementById('milkMaker');
 buyMilkMaker.addEventListener('click', () => {
-    if (gold > place.place4[0] * 150 && place.place4[0] !== 5) {
-        console.log('4');
-        buildHandler(place.place4[0], milkMaker, 'Pictures/milkMaker1.png', 'Pictures/milkMaker2.png',
-            'Pictures/milkMaker3.png', 'Pictures/milkMaker4.png', place.place4[1], place.place4[2], place.place4[3],
-            place.place4[4], place.place4[5], place.place4[6], place.place4[7], place.place4[8]);
-        place.place4[0]++;
-        gold = gold - place.place4[0] * 150;
-        console.log(gold);
+    if (place.place4[9]) {
+        if (gold > place.place4[0] * 150 && place.place4[0] !== 5) {
+            console.log('4');
+            buildHandler(place.place4[0], milkMaker, 'Pictures/milkMaker1.png', 'Pictures/milkMaker2.png',
+                'Pictures/milkMaker3.png', 'Pictures/milkMaker4.png', place.place4[1], place.place4[2], place.place4[3],
+                place.place4[4], place.place4[5], place.place4[6], place.place4[7], place.place4[8]);
+            let btnText = document.getElementById('buyMilkMaker');
+            btnText.innerText = 150 * place.place4[0] + 150;
+            place.place4[0]++;
+            gold = gold - place.place4[0] * 150;
+            showGold();
+            console.log(gold);
+        }
+    }
+});
+milkMaker.addEventListener('click', () => {
+    if (place.place4[0] === 2 && place.place4[9] && goods.milk >= 2) {
+        if (goods.milk >= 2) {
+            milkCounter = 1;
+            goods.milk = goods.milk - 2;
+        }
+        place.place4[9] = false;
+        buidingAnimation(milkMaker, place.place4[1], 4)
+    } else {
+        if (place.place4[0] === 3 && place.place4[9] && goods.milk >= 2) {
+            if (goods.milk >= 4) {
+                milkCounter = 2;
+                goods.milk = goods.milk - 4;
+            } else {
+                if (goods.milk >= 2) {
+                    milkCounter = 1;
+                    goods.milk = goods.milk - 2;
+                }
+            }
+            place.place4[9] = false;
+            buidingAnimation(milkMaker, place.place4[3], 4)
+        } else {
+            if (place.place4[0] === 4 && place.place4[9] && goods.milk >= 2) {
+                if (goods.milk >= 6) {
+                    milkCounter = 3;
+                    goods.milk = goods.milk - 6;
+                } else {
+                    if (goods.milk >= 4) {
+                        milkCounter = 2;
+                        goods.milk = goods.milk - 4;
+                    } else {
+                        if (goods.milk >= 2) {
+                            milkCounter = 1;
+                            goods.milk = goods.milk - 2;
+                        }
+                    }
+                }
+                place.place4[9] = false;
+                buidingAnimation(milkMaker, place.place4[5], 4)
+            } else {
+                if (place.place4[0] === 5 && place.place4[9] && goods.milk >= 8) {
+                    if (goods.milk >= 8) {
+                        milkCounter = 4;
+                        goods.milk = goods.milk - 8;
+                    } else {
+                        if (goods.milk >= 6) {
+                            goods.milk = goods.milk - 6;
+                            milkCounter = 3;
+                        } else {
+                            if (goods.milk >= 4) {
+                                goods.milk = goods.milk - 4;
+                                milkCounter = 2;
+                            } else {
+                                if (goods.milk >= 2) {
+                                    milkCounter = 1;
+                                    goods.milk = goods.milk - 2;
+                                }
+                            }
+                        }
+                    }
+                    place.place4[9] = false;
+                    buidingAnimation(milkMaker, place.place4[7], 4)
+                }
+            }
+        }
     }
 });
 
@@ -1153,14 +1723,86 @@ buyMilkMaker.addEventListener('click', () => {
 let buyStringMaker = document.getElementById('buyStringMaker');
 let stringMaker = document.getElementById('stringMaker');
 buyStringMaker.addEventListener('click', () => {
-    if (gold > place.place5[0] * 150 && place.place5[0] !== 5) {
-        console.log('5');
-        buildHandler(place.place5[0], stringMaker, 'Pictures/stringMaker1.png', 'Pictures/stringMaker2.png',
-            'Pictures/stringMaker3.png', 'Pictures/stringMaker4.png', place.place5[1], place.place5[2], place.place5[3],
-            place.place5[4], place.place5[5], place.place5[6], place.place5[7], place.place5[8]);
-        place.place5[0]++;
-        gold = gold - place.place5[0] * 150;
-        console.log(gold);
+    if (place.place5[9]) {
+        if (gold > place.place5[0] * 150 && place.place5[0] !== 5) {
+            console.log('5');
+            buildHandler(place.place5[0], stringMaker, 'Pictures/stringMaker1.png', 'Pictures/stringMaker2.png',
+                'Pictures/stringMaker3.png', 'Pictures/stringMaker4.png', place.place5[1], place.place5[2], place.place5[3],
+                place.place5[4], place.place5[5], place.place5[6], place.place5[7], place.place5[8]);
+            let btnText = document.getElementById('buyStringMaker');
+            btnText.innerText = 150 * place.place5[0] + 150;
+            place.place5[0]++;
+            gold = gold - place.place5[0] * 150;
+            showGold();
+            console.log(gold);
+        }
+    }
+});
+stringMaker.addEventListener('click', () => {
+    if (place.place5[0] === 2 && place.place5[9] && goods.wool >= 2) {
+        if (goods.wool >= 2) {
+            woolCounter = 1;
+            goods.wool = goods.wool - 2;
+        }
+        place.place5[9] = false;
+        buidingAnimation(stringMaker, place.place5[1], 5)
+    } else {
+        if (place.place5[0] === 3 && place.place5[9] && goods.wool >= 2) {
+            if (goods.wool >= 4) {
+                woolCounter = 2;
+                goods.wool = goods.wool - 4;
+            } else {
+                if (goods.wool >= 2) {
+                    woolCounter = 1;
+                    goods.wool = goods.wool - 2;
+                }
+            }
+            place.place5[9] = false;
+            buidingAnimation(stringMaker, place.place5[3], 5)
+        } else {
+            if (place.place5[0] === 4 && place.place5[9] && goods.wool >= 2) {
+                if (goods.wool >= 6) {
+                    woolCounter = 3;
+                    goods.wool = goods.wool - 6;
+                } else {
+                    if (goods.wool >= 4) {
+                        woolCounter = 2;
+                        goods.wool = goods.wool - 4;
+                    } else {
+                        if (goods.wool >= 2) {
+                            woolCounter = 1;
+                            goods.wool = goods.wool - 2;
+                        }
+                    }
+                }
+                place.place5[9] = false;
+                buidingAnimation(stringMaker, place.place5[5], 5)
+            } else {
+                if (place.place5[0] === 5 && place.place5[9] && goods.wool >= 2) {
+                    if (goods.wool >= 8) {
+                        woolCounter = 4;
+                        goods.wool = goods.wool - 8;
+                    } else {
+                        if (goods.wool > 6) {
+                            woolCounter = 3;
+                            goods.wool = goods.wool - 6;
+                        } else {
+                            if (goods.wool > 4) {
+                                woolCounter = 2;
+                                goods.wool = goods.wool - 4;
+                            } else {
+                                if (goods.wool > 2) {
+                                    woolCounter = 1;
+                                    goods.wool = goods.wool - 2;
+                                }
+                            }
+                        }
+                    }
+                    place.place5[9] = false;
+                    buidingAnimation(stringMaker, place.place5[7], 5)
+                }
+            }
+        }
     }
 });
 
@@ -1169,13 +1811,421 @@ buyStringMaker.addEventListener('click', () => {
 let buyCanvasMaker = document.getElementById('buyCanvasMaker');
 let canvasMaker = document.getElementById('canvasMaker');
 buyCanvasMaker.addEventListener('click', () => {
-    if (gold > place.place6[0] * 150 && place.place6[0] !== 5) {
-        console.log('6');
-        buildHandler(place.place6[0], canvasMaker, 'Pictures/canvasMaker1.png', 'Pictures/canvasMaker2.png',
-            'Pictures/canvasMaker3.png', 'Pictures/canvasMaker4.png', place.place6[1], place.place6[2], place.place6[3],
-            place.place6[4], place.place6[5], place.place6[6], place.place6[7], place.place6[8]);
-        place.place6[0]++;
-        gold = gold - place.place6[0] * 150;
-        console.log(gold);
+    if (place.place6[9]) {
+        if (gold > place.place6[0] * 150 && place.place6[0] !== 5) {
+            console.log('6');
+            buildHandler(place.place6[0], canvasMaker, 'Pictures/canvasMaker1.png', 'Pictures/canvasMaker2.png',
+                'Pictures/canvasMaker3.png', 'Pictures/canvasMaker4.png', place.place6[1], place.place6[2], place.place6[3],
+                place.place6[4], place.place6[5], place.place6[6], place.place6[7], place.place6[8]);
+            let btnText = document.getElementById('buyCanvasMaker');
+            btnText.innerText = 150 * place.place6[0] + 150;
+            place.place6[0]++;
+            gold = gold - place.place6[0] * 150;
+            showGold();
+            console.log(gold);
+        }
     }
 });
+canvasMaker.addEventListener('click', () => {
+    if (place.place6[0] === 2 && place.place6[9] && goods.strings >= 2) {
+        stringsCounter = 1;
+        goods.strings = goods.strings - 2;
+        place.place6[9] = false;
+        buidingAnimation(canvasMaker, place.place6[1], 6)
+    } else {
+        if (place.place6[0] === 3 && place.place6[9] && goods.strings >= 2) {
+            if (goods.strings >= 4) {
+                stringsCounter = 2;
+                goods.strings = goods.strings - 4;
+            } else {
+                stringsCounter = 1;
+                goods.strings = goods.strings - 2;
+            }
+            place.place6[9] = false;
+            buidingAnimation(canvasMaker, place.place6[3], 6)
+        } else {
+            if (place.place6[0] === 4 && place.place6[9] && goods.strings >= 2) {
+                if (goods.strings >= 6) {
+                    stringsCounter = 3;
+                    goods.strings = goods.strings - 6;
+                } else {
+                    if (goods.strings >= 4) {
+                        stringsCounter = 2;
+                        goods.strings = goods.strings - 4;
+                    } else {
+                        goods.strings = goods.strings - 2;
+                    }
+                }
+                place.place6[9] = false;
+                buidingAnimation(canvasMaker, place.place6[5], 6)
+            } else {
+                if (place.place6[0] === 5 && place.place6[9] && goods.strings >= 2) {
+                    if (goods.strings >= 8) {
+                        stringsCounter = 4;
+                        goods.strings = goods.strings - 8;
+                    } else {
+                        if (goods.strings >= 6) {
+                            stringsCounter = 3;
+                            goods.strings = goods.strings - 6;
+                        } else {
+                            if (goods.strings >= 4) {
+                                stringsCounter = 2;
+                                goods.strings = goods.strings - 4;
+                            } else {
+                                stringsCounter = 1;
+                                goods.strings = goods.strings - 2;
+                            }
+                        }
+                    }
+                    place.place6[9] = false;
+                    buidingAnimation(canvasMaker, place.place6[7], 6)
+                }
+            }
+        }
+    }
+});
+
+
+// Анимация строений
+function buidingAnimation(building, buildingWidth, clickhandler) {
+    let start = Date.now();
+    let q = 0;
+    let counter = 0;
+    requestAnimationFrame(step);
+
+    function step() {
+        let timestamp = Date.now();
+
+        let progress = timestamp - start;
+
+        if (q > 15) {
+            counter = counter + 15
+        }
+        q = Math.floor(progress / 60) - counter;
+
+        building.style.backgroundPosition = -q * buildingWidth + 'px';
+        if (progress >= 5000) {
+            building.style.backgroundPosition = '0px';
+            cancelAnimationFrame(step);
+            if (clickhandler === 1) {
+                place.place1[9] = true;
+                buildProducts(0, 20, place.place1[0], game.wheat, 'Pictures/eggWheat.png', eggsCounter);
+
+            } else {
+                if (clickhandler === 2) {
+                    place.place2[9] = true;
+                    buildProducts(0, 180, place.place2[0], game.pancakes, 'Pictures/pancakes.png', wheatCounter);
+
+                } else {
+                    if (clickhandler === 3) {
+                        place.place3[9] = true;
+                        buildProducts(0, 320, place.place3[0], game.cakes, 'Pictures/cake.png', pancakesCounter);
+
+                    } else {
+                        if (clickhandler === 4) {
+                            place.place4[9] = true;
+                            buildProducts(760, 30, place.place4[0], game.kefir, 'Pictures/kefir.png', milkCounter);
+                        } else {
+                            if (clickhandler === 5) {
+                                place.place5[9] = true;
+                                buildProducts(760, 180, place.place5[0], game.strings, 'Pictures/string.png', woolCounter);
+                            } else {
+                                place.place6[9] = true;
+                                buildProducts(760, 320, place.place6[0], game.leather, 'Pictures/canvas.png', stringsCounter);
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+        if (progress < 5000) {
+            requestAnimationFrame(step);
+
+        }
+    }
+
+
+};
+
+
+// функция отрисовки продуктов вырабатываемых сданиями
+
+function buildProducts(x, y, place, placeHolder, image, counter) {
+
+    if (place === 2) {
+        let item = {
+            x: x,
+            y: y,
+            width: 42,
+            height: 42
+        };
+        game.isRunning = false;
+        placeHolder.push(item);
+        let promise = new Promise(() => {
+            console.log('stage1');
+            placeHolder[placeHolder.length - 1].sprites = new Image();
+            placeHolder[placeHolder.length - 1].sprites.src = image;
+        }).then(
+            game.isRunning = true
+        );
+    } else {
+        if (place === 3) {
+            let item1 = {
+                x: x,
+                y: y,
+                width: 42,
+                height: 42
+            };
+            let item2 = {
+                x: x,
+                y: y + 40,
+                width: 42,
+                height: 42
+            };
+
+            game.isRunning = false;
+
+            let promise = new Promise(() => {
+                if (counter === 2) {
+                    placeHolder.push(item1);
+                    placeHolder[placeHolder.length - 1].sprites = new Image();
+                    placeHolder[placeHolder.length - 1].sprites.src = image;
+                    placeHolder.push(item2);
+                    placeHolder[placeHolder.length - 1].sprites = new Image();
+                    placeHolder[placeHolder.length - 1].sprites.src = image;
+                } else {
+                    placeHolder.push(item1);
+                    placeHolder[placeHolder.length - 1].sprites = new Image();
+                    placeHolder[placeHolder.length - 1].sprites.src = image;
+                }
+                counter = 0;
+
+            }).then(
+                game.isRunning = true
+            );
+        } else {
+            if (place === 4) {
+                let item1 = {
+                    x: x,
+                    y: y,
+                    width: 42,
+                    height: 42
+                };
+                let item2 = {
+                    x: x,
+                    y: y + 40,
+                    width: 42,
+                    height: 42
+                };
+                let item3 = {
+                    x: x + 40,
+                    y: y,
+                    width: 42,
+                    height: 42
+                };
+
+
+                game.isRunning = false;
+
+                let promise = new Promise(() => {
+                    if (counter === 3) {
+                        placeHolder.push(item1);
+                        placeHolder[placeHolder.length - 1].sprites = new Image();
+                        placeHolder[placeHolder.length - 1].sprites.src = image;
+                        placeHolder.push(item2);
+                        placeHolder[placeHolder.length - 1].sprites = new Image();
+                        placeHolder[placeHolder.length - 1].sprites.src = image;
+                        placeHolder.push(item3);
+                        placeHolder[placeHolder.length - 1].sprites = new Image();
+                        placeHolder[placeHolder.length - 1].sprites.src = image;
+                    } else {
+                        if (counter === 2) {
+                            placeHolder.push(item1);
+                            placeHolder[placeHolder.length - 1].sprites = new Image();
+                            placeHolder[placeHolder.length - 1].sprites.src = image;
+                            placeHolder.push(item2);
+                            placeHolder[placeHolder.length - 1].sprites = new Image();
+                            placeHolder[placeHolder.length - 1].sprites.src = image;
+                        } else {
+                            game.pancakes.push(item1);
+                            placeHolder[placeHolder.length - 1].sprites = new Image();
+                            placeHolder[placeHolder.length - 1].sprites.src = image;
+                        }
+                    }
+                    counter = 0;
+
+                }).then(
+                    game.isRunning = true
+                );
+            } else {
+                if (place === 5) {
+                    let item1 = {
+                        x: x,
+                        y: y,
+                        width: 42,
+                        height: 42
+                    };
+                    let item2 = {
+                        x: x,
+                        y: y + 40,
+                        width: 42,
+                        height: 42
+                    };
+                    let item3 = {
+                        x: x + 40,
+                        y: y,
+                        width: 42,
+                        height: 42
+                    };
+                    let item4 = {
+                        x: x + 40,
+                        y: y + 40,
+                        width: 42,
+                        height: 42
+                    };
+
+                    game.isRunning = false;
+
+                    let promise = new Promise(() => {
+                        if (counter === 4) {
+                            placeHolder.push(item1);
+                            placeHolder[placeHolder.length - 1].sprites = new Image();
+                            placeHolder[placeHolder.length - 1].sprites.src = image;
+                            placeHolder.push(item2);
+                            placeHolder[placeHolder.length - 1].sprites = new Image();
+                            placeHolder[placeHolder.length - 1].sprites.src = image;
+                            placeHolder.push(item3);
+                            placeHolder[placeHolder.length - 1].sprites = new Image();
+                            placeHolder[placeHolder.length - 1].sprites.src = image;
+                            placeHolder.push(item4);
+                            placeHolder[placeHolder.length - 1].sprites = new Image();
+                            placeHolder[placeHolder.length - 1].sprites.src = image;
+                        } else {
+                            if (counter === 3) {
+                                placeHolder.push(item1);
+                                placeHolder[placeHolder.length - 1].sprites = new Image();
+                                placeHolder[placeHolder.length - 1].sprites.src = image;
+                                placeHolder.push(item2);
+                                placeHolder[placeHolder.length - 1].sprites = new Image();
+                                placeHolder[placeHolder.length - 1].sprites.src = image;
+                                placeHolder.push(item3);
+                                placeHolder[placeHolder.length - 1].sprites = new Image();
+                                placeHolder[placeHolder.length - 1].sprites.src = image;
+                            } else {
+                                if (counter === 2) {
+                                    placeHolder.push(item1);
+                                    placeHolder[placeHolder.length - 1].sprites = new Image();
+                                    placeHolder[placeHolder.length - 1].sprites.src = image;
+                                    placeHolder.push(item2);
+                                    placeHolder[placeHolder.length - 1].sprites = new Image();
+                                    placeHolder[placeHolder.length - 1].sprites.src = image;
+                                } else {
+                                    game.pancakes.push(item1);
+                                    placeHolder[placeHolder.length - 1].sprites = new Image();
+                                    placeHolder[placeHolder.length - 1].sprites.src = image;
+                                }
+                            }
+                        }
+                        counter = 0;
+                    }).then(
+                        game.isRunning = true
+                    );
+                }
+            }
+        }
+    }
+}
+
+// отрисовка поездок в город
+
+var canvasRoad = {
+    width: 540,
+    height: 234,
+    ctx: undefined,
+    isRunning: true,
+
+    sprites: {
+        background: undefined,
+        car: undefined,
+    },
+
+    init: function () {
+        var canvas = document.getElementById("roadCanvas");
+        this.ctx = canvas.getContext("2d");
+    },
+
+    load: function () {
+        this.sprites.background = new Image();
+        this.sprites.background.src = 'Pictures/road.png';
+        this.sprites.car = new Image();
+        this.sprites.car.src = 'Pictures/mobile.png';
+    },
+
+    start: function () {
+        this.init();
+        this.load();
+        this.run();
+    },
+
+    render: function () {
+        this.ctx.clearRect(0, 0, this.width, this.height);
+        this.ctx.drawImage(this.sprites.background, 0, 0, 180, 78, 180, 0, 360, 234);
+        this.ctx.drawImage(this.sprites.car, 0, 0, 130, 130, this.car.x, 100, 40, 110);
+    },
+
+    update: function () {
+        if (this.car.dx) {
+            this.car.x = this.car.x + this.car.dx;
+        }
+        this.car.checkBounds();
+    },
+
+    run: function () {
+        this.update();
+        this.render();
+
+        if (this.isRunning) {
+            window.requestAnimationFrame(function () {
+                canvasRoad.run();
+            })
+        }
+
+    }
+};
+
+canvasRoad.car = {
+    velocity: 0.5,
+    x: 210,
+    y: 100,
+    dx: 1,
+    dy: 0,
+
+    checkBounds: function () {
+        if (this.x + 42 > canvasRoad.width) {
+            this.dx = -this.dx;
+        }
+        if (this.x - 0.00001 < 210) {
+            this.dx = 0;
+            canvasRoad.isRunning = false;
+            console.log('1');
+
+        }
+    }
+};
+
+
+window.addEventListener('load', function () {
+    game.start();
+    canvasRoad.start()
+
+});
+
+var roadCanvas = document.getElementById("roadCanvas");
+roadCanvas.addEventListener('click', () => {
+    canvasRoad.car.dx = 1;
+    canvasRoad.isRunning = true;
+    canvasRoad.run();
+});
+
+

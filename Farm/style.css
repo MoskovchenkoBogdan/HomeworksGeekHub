@@ -94,7 +94,7 @@ ul {
 
 .place-1, .place-2, .place-3, .place-4, .place-5, .place-6 {
     display: inline-block;
-    height: 142px;
+    height: 150px;
     width: 300px;
     display: flex;
     justify-content: center;
@@ -103,44 +103,50 @@ ul {
 
 #EggDryer {
     display: inline-block;
-    background: url(Pictures/eggDryer1.png) no-repeat;
-    height: 114px;
-    width: 128px;
+    background: url(Pictures/eggWheat.png) no-repeat;
+    background-size: cover;
+    height: 80px;
+    width: 80px;
 }
 
 .place-2 div {
     display: inline-block;
-    background: url(Pictures/wheat1.png) no-repeat;
-    height: 142px;
-    width: 134px;
+    background: url(Pictures/pancakes.png) no-repeat;
+    background-size: cover;
+    height: 80px;
+    width: 80px;
 }
 
 .place-3 div {
     display: inline-block;
-    background: url(Pictures/cakeMaker1.png) no-repeat;
-    height: 184px;
-    width: 172px;
+    background: url(Pictures/cake.png) no-repeat;
+    background-size: cover;
+    height: 80px;
+    width: 80px;
 }
 
 .place-4 div {
     display: inline-block;
-    background: url(Pictures/milkMaker1.png) no-repeat;
-    height: 112px;
-    width: 136px;
+    background: url(Pictures/kefir.png) no-repeat;
+    background-size: cover;
+    height: 80px;
+    width: 80px;
 }
 
 .place-5 div {
     display: inline-block;
-    background: url(Pictures/stringMaker1.png) no-repeat;
-    height: 106px;
-    width: 130px;
+    background: url(Pictures/string.png) no-repeat;
+    background-size: cover;
+    height: 80px;
+    width: 80px;
 }
 
 .place-6 div {
     display: inline-block;
-    background: url(Pictures/canvasMaker1.png) no-repeat;
-    height: 116px;
-    width: 166px;
+    background: url(Pictures/canvas.png) no-repeat;
+    background-size: cover;
+    height: 80px;
+    width: 80px;
 }
 
 #buyEggDryer {
@@ -243,9 +249,6 @@ ul {
     margin-bottom: 25px;
 }
 
-p {
-    text-align: center;
-}
 
 .money {
     margin-left: 30px;
@@ -265,12 +268,16 @@ p {
 p {
     text-align: center;
     font-size: 25px;
-
 }
 
 .money p{
     margin-top: 2px;
     margin-left: 7px;
+}
+
+#roadCanvas {
+    margin-left: 20px;
+    display: inline-block;
 }
 
 
