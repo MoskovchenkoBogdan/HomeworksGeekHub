@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="style.css" rel="stylesheet">
+    <title>Farm</title>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+
+        <ul class="animals">
+            <li id="turkey" class="buy-turkey">
+
+                <p class="animalsPrice">100</p>
+            </li>
+            <li id="sheep" class="buy-sheep">
+
+                <p class="animalsPrice">1000</p>
+            </li>
+            <li id="cow" class="buy-cow">
+
+                <p class="animalsPrice">10000</p>
+            </li>
+            <li id="cat" class="buy-cat">
+
+                <p class="animalsPrice">2500</p>
+            </li>
+            <li id="dog" class="buy-dog">
+                <p class="animalsPrice">2600</p>
+            </li>
+        </ul>
+        <div class="money">
+            <div class="moneyImage"></div>
+            <p id="moneyAmount">
+                30000
+            </p>
+        </div>
+        <canvas id="roadCanvas" width="540" height="234"></canvas>
+    </div>
+    <div class="wrapper">
+
+        <div class="left">
+            <div class="place-1">
+                <button id="buyEggDryer">150</button>
+                <div id="EggDryer"></div>
+            </div>
+            <div class="place-2">
+                <button id="buyPancakesMaker">150</button>
+                <div id="pancakesMaker"></div>
+            </div>
+            <div class="place-3">
+                <button id="buyCakeMaker">150</button>
+                <div id="cakeMaker"></div>
+            </div>
+        </div>
+
+        <div class="main">
+            <canvas id="myCanvas" width="856" height="428"></canvas>
+            <div class="mobile"></div>
+            <div class="warehouse"></div>
+            <div class="well"></div>
+        </div>
+
+        <div class="right ">
+            <div class="place-4">
+                <div id="milkMaker"></div>
+                <button id="buyMilkMaker">150</button>
+            </div>
+            <div class="place-5">
+                <div id="stringMaker"></div>
+                <button id="buyStringMaker">150</button>
+            </div>
+            <div class="place-6">
+                <div id="canvasMaker"></div>
+                <button id="buyCanvasMaker">150</button>
+            </div>
+            <div class="tasks">
+                <ul>
+                    <li>
+                        <img src="Pictures/cake.png" alt="cake" width="100%">
+                        <hr/>
+                        <p id="cakesGoal">5</p>
+                    </li>
+                    <li>
+                        <img src="Pictures/canvas.png" alt="canvas" width="100%">
+                        <hr/>
+                        <p id="canvasGoal">5</p>
+                    </li>
+                    <li>
+                        <img src="Pictures/kefir.png" alt="kefir" width="100%">
+                        <hr/>
+                        <p id="kefirGoal">5</p>
+                    </li>
+                    <li>
+                        <div></div>
+                        <hr/>
+                        <p id="goldGoal">40000</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+<div class="visuallyHidden">
+    <div class="drive">
+        <div class="productsInWarehouse">
+            <h1>Warehouse</h1>
+            <ul>
+                <li>eggs = <span id="eggsStore"> </span> * 10 gold</li>
+                <li>wheat = <span id="wheatStore"></span> * 30 gold</li>
+                <li>pancakes = <span id="pancakesStore"></span> * 70 gold</li>
+                <li>cakes = <span id="cakesStore"></span> * 150 gold</li>
+                <li>wool = <span id="woolStore"></span> * 20 gold</li>
+                <li>strings = <span id="stringsStore"></span> * 50 gold</li>
+                <li>leather = <span id="leatherStore"></span> * 110 gold</li>
+                <li>milk = <span id="milkStore"></span> * 50 gold</li>
+                <li>kefir = <span id="kefirStore"></span> * 120 gold</li>
+            </ul>
+            <button id="buttonSend">Ok</button>
+        </div>
+        <div class="productsToSell">
+            <h1>Send to town market</h1>
+            <ul>
+                <li>eggs = <span id="sendEggs"></span></li>
+                <li>wheat = <span id="sendWheat"></span></li>
+                <li>pancakes = <span id="sendPancakes"></span></li>
+                <li>cakes = <span id="sendCakes"></span></li>
+                <li>wool = <span id="sendWool"></span></li>
+                <li>strings = <span id="sendStrings"></span></li>
+                <li>leather = <span id="sendLeather"></span></li>
+                <li>milk = <span id="sendMilk"></span></li>
+                <li>kefir = <span id="sendKefir"></span></li>
+            </ul>
+            <button id="buttonExit">Exit</button>
+        </div>
+    </div>
+
+
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
