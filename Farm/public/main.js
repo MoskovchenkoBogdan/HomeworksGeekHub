@@ -10,6 +10,7 @@ var goods = {
     milk: 30,
     kefir: 10
 };
+var stockPileClicker = false;
 
 var sendGoods = {
     eggs: 0,
@@ -252,21 +253,20 @@ var game = {
             checkGold();
 
         } else {
-           let grassNew = {
-               x: x,
-               y: y,
-               width: 412,
-               height: 262
-           };
-           game.isRunning = false;
-           game.grass.push(grassNew);
-           waterGround = waterGround - 1;
+            let grassNew = {
+                x: x,
+                y: y,
+                width: 412,
+                height: 262
+            };
+            game.isRunning = false;
+            game.grass.push(grassNew);
+            waterGround = waterGround - 1;
             let promise = new Promise(() => {
                 game.grass[game.grass.length - 1].sprites = new Image();
                 game.grass[game.grass.length - 1].sprites.src = "Pictures/grass.png";
             }).then(
                 game.isRunning = true
-
             );
 
         }
@@ -400,8 +400,6 @@ var game = {
 };
 
 
-
-
 game.wheat[0] = {
     x: 200,
     y: 200,
@@ -464,8 +462,6 @@ game.kefir[0] = {
     width: 48,
     height: 48,
 };
-
-
 
 
 var myCanvas = document.getElementById('myCanvas');
@@ -1391,7 +1387,9 @@ buyEggDryer.addEventListener('click', () => {
             let btnText = document.getElementById('buyEggDryer');
             btnText.innerText = 150 * place.place1[0] + 150;
             place.place1[0]++;
-            if (place.place1[0]>4){btnText.innerText =''; }
+            if (place.place1[0] > 4) {
+                btnText.innerText = '';
+            }
             gold = gold - place.place1[0] * 150;
             showGold();
             console.log(gold);
@@ -1478,7 +1476,9 @@ buyPancakesMaker.addEventListener('click', () => {
             let btnText = document.getElementById('buyPancakesMaker');
             btnText.innerText = 150 * place.place2[0] + 150;
             place.place2[0]++;
-            if (place.place2[0]>4){btnText.innerText =''; }
+            if (place.place2[0] > 4) {
+                btnText.innerText = '';
+            }
             gold = gold - place.place2[0] * 150;
             showGold();
             console.log(gold);
@@ -1564,7 +1564,9 @@ buyCakeMaker.addEventListener('click', () => {
             let btnText = document.getElementById('buyCakeMaker');
             btnText.innerText = 150 * place.place3[0] + 150;
             place.place3[0]++;
-            if (place.place3[0]>4){btnText.innerText =''; }
+            if (place.place3[0] > 4) {
+                btnText.innerText = '';
+            }
             gold = gold - place.place3[0] * 150;
             showGold();
             console.log(gold);
@@ -1655,7 +1657,9 @@ buyMilkMaker.addEventListener('click', () => {
             let btnText = document.getElementById('buyMilkMaker');
             btnText.innerText = 150 * place.place4[0] + 150;
             place.place4[0]++;
-            if (place.place4[0]>4){btnText.innerText =''; }
+            if (place.place4[0] > 4) {
+                btnText.innerText = '';
+            }
             gold = gold - place.place4[0] * 150;
             showGold();
             console.log(gold);
@@ -1664,10 +1668,8 @@ buyMilkMaker.addEventListener('click', () => {
 });
 milkMaker.addEventListener('click', () => {
     if (place.place4[0] === 2 && place.place4[9] && goods.milk >= 2) {
-        if (goods.milk >= 2) {
-            milkCounter = 1;
-            goods.milk = goods.milk - 2;
-        }
+        milkCounter = 1;
+        goods.milk = goods.milk - 2;
         place.place4[9] = false;
         buidingAnimation(milkMaker, place.place4[1], 4)
     } else {
@@ -1676,10 +1678,8 @@ milkMaker.addEventListener('click', () => {
                 milkCounter = 2;
                 goods.milk = goods.milk - 4;
             } else {
-                if (goods.milk >= 2) {
-                    milkCounter = 1;
-                    goods.milk = goods.milk - 2;
-                }
+                milkCounter = 1;
+                goods.milk = goods.milk - 2;
             }
             place.place4[9] = false;
             buidingAnimation(milkMaker, place.place4[3], 4)
@@ -1693,16 +1693,14 @@ milkMaker.addEventListener('click', () => {
                         milkCounter = 2;
                         goods.milk = goods.milk - 4;
                     } else {
-                        if (goods.milk >= 2) {
-                            milkCounter = 1;
-                            goods.milk = goods.milk - 2;
-                        }
+                        milkCounter = 1;
+                        goods.milk = goods.milk - 2;
                     }
                 }
                 place.place4[9] = false;
                 buidingAnimation(milkMaker, place.place4[5], 4)
             } else {
-                if (place.place4[0] === 5 && place.place4[9] && goods.milk >= 8) {
+                if (place.place4[0] === 5 && place.place4[9] && goods.milk >= 2) {
                     if (goods.milk >= 8) {
                         milkCounter = 4;
                         goods.milk = goods.milk - 8;
@@ -1715,10 +1713,8 @@ milkMaker.addEventListener('click', () => {
                                 goods.milk = goods.milk - 4;
                                 milkCounter = 2;
                             } else {
-                                if (goods.milk >= 2) {
-                                    milkCounter = 1;
-                                    goods.milk = goods.milk - 2;
-                                }
+                                milkCounter = 1;
+                                goods.milk = goods.milk - 2;
                             }
                         }
                     }
@@ -1744,7 +1740,9 @@ buyStringMaker.addEventListener('click', () => {
             let btnText = document.getElementById('buyStringMaker');
             btnText.innerText = 150 * place.place5[0] + 150;
             place.place5[0]++;
-            if (place.place5[0]>4){btnText.innerText =''; }
+            if (place.place5[0] > 4) {
+                btnText.innerText = '';
+            }
             gold = gold - place.place5[0] * 150;
             showGold();
             console.log(gold);
@@ -1753,10 +1751,8 @@ buyStringMaker.addEventListener('click', () => {
 });
 stringMaker.addEventListener('click', () => {
     if (place.place5[0] === 2 && place.place5[9] && goods.wool >= 2) {
-        if (goods.wool >= 2) {
-            woolCounter = 1;
-            goods.wool = goods.wool - 2;
-        }
+        woolCounter = 1;
+        goods.wool = goods.wool - 2;
         place.place5[9] = false;
         buidingAnimation(stringMaker, place.place5[1], 5)
     } else {
@@ -1765,10 +1761,8 @@ stringMaker.addEventListener('click', () => {
                 woolCounter = 2;
                 goods.wool = goods.wool - 4;
             } else {
-                if (goods.wool >= 2) {
-                    woolCounter = 1;
-                    goods.wool = goods.wool - 2;
-                }
+                woolCounter = 1;
+                goods.wool = goods.wool - 2;
             }
             place.place5[9] = false;
             buidingAnimation(stringMaker, place.place5[3], 5)
@@ -1782,10 +1776,8 @@ stringMaker.addEventListener('click', () => {
                         woolCounter = 2;
                         goods.wool = goods.wool - 4;
                     } else {
-                        if (goods.wool >= 2) {
-                            woolCounter = 1;
-                            goods.wool = goods.wool - 2;
-                        }
+                        woolCounter = 1;
+                        goods.wool = goods.wool - 2;
                     }
                 }
                 place.place5[9] = false;
@@ -1796,18 +1788,16 @@ stringMaker.addEventListener('click', () => {
                         woolCounter = 4;
                         goods.wool = goods.wool - 8;
                     } else {
-                        if (goods.wool > 6) {
+                        if (goods.wool >= 6) {
                             woolCounter = 3;
                             goods.wool = goods.wool - 6;
                         } else {
-                            if (goods.wool > 4) {
+                            if (goods.wool >= 4) {
                                 woolCounter = 2;
                                 goods.wool = goods.wool - 4;
                             } else {
-                                if (goods.wool > 2) {
-                                    woolCounter = 1;
-                                    goods.wool = goods.wool - 2;
-                                }
+                                woolCounter = 1;
+                                goods.wool = goods.wool - 2;
                             }
                         }
                     }
@@ -1833,7 +1823,9 @@ buyCanvasMaker.addEventListener('click', () => {
             let btnText = document.getElementById('buyCanvasMaker');
             btnText.innerText = 150 * place.place6[0] + 150;
             place.place6[0]++;
-            if (place.place6[0]>4){btnText.innerText =''; }
+            if (place.place6[0] > 4) {
+                btnText.innerText = '';
+            }
             gold = gold - place.place6[0] * 150;
             showGold();
             console.log(gold);
@@ -1902,6 +1894,7 @@ canvasMaker.addEventListener('click', () => {
 
 // Анимация строений
 function buidingAnimation(building, buildingWidth, clickhandler) {
+    stockPileClicker = true;
     let start = Date.now();
     let q = 0;
     let counter = 0;
@@ -1966,7 +1959,6 @@ function buidingAnimation(building, buildingWidth, clickhandler) {
 // функция отрисовки продуктов вырабатываемых сданиями
 
 function buildProducts(x, y, place, placeHolder, image, counter) {
-
     if (place === 2) {
         let item = {
             x: x,
@@ -1976,13 +1968,20 @@ function buildProducts(x, y, place, placeHolder, image, counter) {
         };
         game.isRunning = false;
         placeHolder.push(item);
-        let promise = new Promise(() => {
-            console.log('stage1');
-            placeHolder[placeHolder.length - 1].sprites = new Image();
-            placeHolder[placeHolder.length - 1].sprites.src = image;
-        }).then(
-            game.isRunning = true
-        );
+        console.log('STAGE1');
+        placeHolder[placeHolder.length - 1].sprites = new Image();
+        placeHolder[placeHolder.length - 1].sprites.src = image;
+        placeHolder[placeHolder.length - 1].sprites.addEventListener('load', () => {
+
+            game.isRunning = true;
+            counter = 0;
+            if (!stockPileClicker){
+                game.run()
+            }
+
+        });
+
+
     } else {
         if (place === 3) {
             let item1 = {
@@ -2000,24 +1999,41 @@ function buildProducts(x, y, place, placeHolder, image, counter) {
 
             game.isRunning = false;
 
-            let promise = new Promise(() => {
-                if (counter === 2) {
-                    placeHolder.push(item1);
-                    placeHolder[placeHolder.length - 1].sprites = new Image();
-                    placeHolder[placeHolder.length - 1].sprites.src = image;
+
+            if (counter === 2) {
+                placeHolder.push(item1);
+                placeHolder[placeHolder.length - 1].sprites = new Image();
+                placeHolder[placeHolder.length - 1].sprites.src = image;
+                placeHolder[placeHolder.length - 1].sprites.addEventListener('load', () => {
                     placeHolder.push(item2);
                     placeHolder[placeHolder.length - 1].sprites = new Image();
                     placeHolder[placeHolder.length - 1].sprites.src = image;
-                } else {
-                    placeHolder.push(item1);
-                    placeHolder[placeHolder.length - 1].sprites = new Image();
-                    placeHolder[placeHolder.length - 1].sprites.src = image;
-                }
-                counter = 0;
+                    placeHolder[placeHolder.length - 1].sprites.addEventListener('load', () => {
 
-            }).then(
-                game.isRunning = true
-            );
+                        game.isRunning = true;
+                        counter = 0;
+                        if (!stockPileClicker){
+                            game.run()
+                        }
+                    })
+                })
+
+            } else {
+                placeHolder.push(item1);
+                console.log('STAGE1');
+                placeHolder[placeHolder.length - 1].sprites = new Image();
+                placeHolder[placeHolder.length - 1].sprites.src = image;
+                placeHolder[placeHolder.length - 1].sprites.addEventListener('load', () => {
+
+                    game.isRunning = true;
+                    counter = 0;
+                    if (!stockPileClicker){
+                        game.run()
+                    }
+                });
+            }
+
+
         } else {
             if (place === 4) {
                 let item1 = {
@@ -2042,36 +2058,66 @@ function buildProducts(x, y, place, placeHolder, image, counter) {
 
                 game.isRunning = false;
 
-                let promise = new Promise(() => {
-                    if (counter === 3) {
-                        placeHolder.push(item1);
-                        placeHolder[placeHolder.length - 1].sprites = new Image();
-                        placeHolder[placeHolder.length - 1].sprites.src = image;
+                if (counter === 3) {
+                    placeHolder.push(item1);
+                    placeHolder[placeHolder.length - 1].sprites = new Image();
+                    placeHolder[placeHolder.length - 1].sprites.src = image;
+                    placeHolder[placeHolder.length - 1].sprites.addEventListener('load', () => {
                         placeHolder.push(item2);
                         placeHolder[placeHolder.length - 1].sprites = new Image();
                         placeHolder[placeHolder.length - 1].sprites.src = image;
-                        placeHolder.push(item3);
-                        placeHolder[placeHolder.length - 1].sprites = new Image();
-                        placeHolder[placeHolder.length - 1].sprites.src = image;
-                    } else {
-                        if (counter === 2) {
-                            placeHolder.push(item1);
+                        placeHolder[placeHolder.length - 1].sprites.addEventListener('load', () => {
+                            placeHolder.push(item3);
                             placeHolder[placeHolder.length - 1].sprites = new Image();
                             placeHolder[placeHolder.length - 1].sprites.src = image;
+                            placeHolder[placeHolder.length - 1].sprites.addEventListener('load', () => {
+
+                                game.isRunning = true;
+                                counter = 0;
+                                if (!stockPileClicker){
+                                    game.run()
+                                }
+                            })
+                        })
+
+                    })
+
+                } else {
+                    if (counter === 2) {
+                        placeHolder.push(item1);
+                        placeHolder[placeHolder.length - 1].sprites = new Image();
+                        placeHolder[placeHolder.length - 1].sprites.src = image;
+                        placeHolder[placeHolder.length - 1].sprites.addEventListener('load', () => {
                             placeHolder.push(item2);
                             placeHolder[placeHolder.length - 1].sprites = new Image();
                             placeHolder[placeHolder.length - 1].sprites.src = image;
-                        } else {
-                            game.pancakes.push(item1);
-                            placeHolder[placeHolder.length - 1].sprites = new Image();
-                            placeHolder[placeHolder.length - 1].sprites.src = image;
-                        }
-                    }
-                    counter = 0;
+                            placeHolder[placeHolder.length - 1].sprites.addEventListener('load', () => {
 
-                }).then(
-                    game.isRunning = true
-                );
+                                game.isRunning = true;
+                                counter = 0;
+                                if (!stockPileClicker){
+                                    game.run()
+                                }
+                            })
+                        })
+
+                    } else {
+                        placeHolder.push(item1);
+                        console.log('STAGE1');
+                        placeHolder[placeHolder.length - 1].sprites = new Image();
+                        placeHolder[placeHolder.length - 1].sprites.src = image;
+                        placeHolder[placeHolder.length - 1].sprites.addEventListener('load', () => {
+
+                            game.isRunning = true;
+                            counter = 0;
+                            if (!stockPileClicker){
+                                game.run()
+                            }
+                        });
+                    }
+                }
+
+
             } else {
                 if (place === 5) {
                     let item1 = {
@@ -2101,50 +2147,97 @@ function buildProducts(x, y, place, placeHolder, image, counter) {
 
                     game.isRunning = false;
 
-                    let promise = new Promise(() => {
-                        if (counter === 4) {
-                            placeHolder.push(item1);
-                            placeHolder[placeHolder.length - 1].sprites = new Image();
-                            placeHolder[placeHolder.length - 1].sprites.src = image;
+
+                    if (counter === 4) {
+                        placeHolder.push(item1);
+                        placeHolder[placeHolder.length - 1].sprites = new Image();
+                        placeHolder[placeHolder.length - 1].sprites.src = image;
+                        placeHolder[placeHolder.length - 1].sprites.addEventListener('load', () => {
                             placeHolder.push(item2);
                             placeHolder[placeHolder.length - 1].sprites = new Image();
                             placeHolder[placeHolder.length - 1].sprites.src = image;
-                            placeHolder.push(item3);
-                            placeHolder[placeHolder.length - 1].sprites = new Image();
-                            placeHolder[placeHolder.length - 1].sprites.src = image;
-                            placeHolder.push(item4);
-                            placeHolder[placeHolder.length - 1].sprites = new Image();
-                            placeHolder[placeHolder.length - 1].sprites.src = image;
-                        } else {
-                            if (counter === 3) {
-                                placeHolder.push(item1);
-                                placeHolder[placeHolder.length - 1].sprites = new Image();
-                                placeHolder[placeHolder.length - 1].sprites.src = image;
-                                placeHolder.push(item2);
-                                placeHolder[placeHolder.length - 1].sprites = new Image();
-                                placeHolder[placeHolder.length - 1].sprites.src = image;
+                            placeHolder[placeHolder.length - 1].sprites.addEventListener('load', () => {
                                 placeHolder.push(item3);
                                 placeHolder[placeHolder.length - 1].sprites = new Image();
                                 placeHolder[placeHolder.length - 1].sprites.src = image;
-                            } else {
-                                if (counter === 2) {
-                                    placeHolder.push(item1);
+                                placeHolder[placeHolder.length - 1].sprites.addEventListener('load', () => {
+                                    placeHolder.push(item4);
                                     placeHolder[placeHolder.length - 1].sprites = new Image();
                                     placeHolder[placeHolder.length - 1].sprites.src = image;
+                                    placeHolder[placeHolder.length - 1].sprites.addEventListener('load', () => {
+
+                                        game.isRunning = true;
+                                        counter = 0;
+                                        if (!stockPileClicker){
+                                            game.run()
+                                        }
+                                    });
+                                });
+
+                            });
+
+                        });
+
+                    } else {
+                        if (counter === 3) {
+                            placeHolder.push(item1);
+                            placeHolder[placeHolder.length - 1].sprites = new Image();
+                            placeHolder[placeHolder.length - 1].sprites.src = image;
+                            placeHolder[placeHolder.length - 1].sprites.addEventListener('load', () => {
+                                placeHolder.push(item2);
+                                placeHolder[placeHolder.length - 1].sprites = new Image();
+                                placeHolder[placeHolder.length - 1].sprites.src = image;
+                                placeHolder[placeHolder.length - 1].sprites.addEventListener('load', () => {
+                                    placeHolder.push(item3);
+                                    placeHolder[placeHolder.length - 1].sprites = new Image();
+                                    placeHolder[placeHolder.length - 1].sprites.src = image;
+                                    placeHolder[placeHolder.length - 1].sprites.addEventListener('load', () => {
+
+                                        game.isRunning = true;
+                                        counter = 0;
+                                        if (!stockPileClicker){
+                                            game.run()
+                                        }
+                                    })
+                                })
+
+                            })
+
+                        } else {
+                            if (counter === 2) {
+                                placeHolder.push(item1);
+                                placeHolder[placeHolder.length - 1].sprites = new Image();
+                                placeHolder[placeHolder.length - 1].sprites.src = image;
+                                placeHolder[placeHolder.length - 1].sprites.addEventListener('load', () => {
                                     placeHolder.push(item2);
                                     placeHolder[placeHolder.length - 1].sprites = new Image();
                                     placeHolder[placeHolder.length - 1].sprites.src = image;
-                                } else {
-                                    game.pancakes.push(item1);
-                                    placeHolder[placeHolder.length - 1].sprites = new Image();
-                                    placeHolder[placeHolder.length - 1].sprites.src = image;
-                                }
+                                    placeHolder[placeHolder.length - 1].sprites.addEventListener('load', () => {
+
+                                        game.isRunning = true;
+                                        counter = 0;
+                                        if (!stockPileClicker){
+                                            game.run()
+                                        }
+                                    })
+                                })
+
+                            } else {
+                                placeHolder.push(item1);
+                                console.log('STAGE1');
+                                placeHolder[placeHolder.length - 1].sprites = new Image();
+                                placeHolder[placeHolder.length - 1].sprites.src = image;
+                                placeHolder[placeHolder.length - 1].sprites.addEventListener('load', () => {
+
+                                    game.isRunning = true;
+                                    counter = 0;
+                                    if (!stockPileClicker){
+                                        game.run()
+                                    }
+                                });
                             }
                         }
-                        counter = 0;
-                    }).then(
-                        game.isRunning = true
-                    );
+                    }
                 }
             }
         }
@@ -2473,6 +2566,7 @@ buttonSend.addEventListener('click', () => {
     checkGold();
     game.isRunning = true;
     game.run();
+    stockPileClicker = false;
 });
 
 buttonExit.addEventListener('click', () => {
@@ -2497,6 +2591,7 @@ buttonExit.addEventListener('click', () => {
     checkGold();
     game.isRunning = true;
     game.run();
+    stockPileClicker = false;
 
 });
 
@@ -2585,6 +2680,9 @@ well.addEventListener('click', () => {
         }
     }
 });
+
+
+
 
 
 
